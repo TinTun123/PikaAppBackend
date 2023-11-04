@@ -1,8 +1,8 @@
 let links = [
     {
-        title: 'About Pika',
+        title: 'Dashboard',
         link : 'admin.about.index',
-        icon : 'AiOutlineUser',
+        icon : 'RxDashboard',
         can : true
     },
     {

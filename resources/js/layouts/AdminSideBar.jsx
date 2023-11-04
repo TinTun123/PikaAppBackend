@@ -63,7 +63,7 @@ const AdminSideBar = ({children}) => {
             <div
                 className="mobile-navbar bg-white shadow-sm h-[69px] flex items-center justify-between fixed z-10 w-full top-0 px-4 py-2 md:hidden">
                 <div
-                    className="w-6 h-6 cursor-pointer"
+                    className="w-6 h-6 cursor-pointer text-2xl"
                     onClick={() => setIsOpen(true)}
                 >
                     <HiOutlineBars3BottomLeft/>
