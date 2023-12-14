@@ -11,5 +11,9 @@
 </head>
 <body>
 @inertia
+
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
 </body>
 </html>

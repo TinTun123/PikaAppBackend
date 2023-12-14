@@ -36,8 +36,8 @@ const AdminSideBar = ({children}) => {
                         {links.map(link => (
                             <li key={link.title}>
                                 <Link
-                                    href={route('home')}
-                                    className={`text-[15px] cursor-pointer flex gap-2 w-full px-4 py-3 transition hover:bg-secondary ${window.location.href === route('home') && 'border-l-4 border-primary'}`}
+                                    href={route(link.link)}
+                                    className={`text-[15px] cursor-pointer flex gap-2 w-full px-4 py-3 transition hover:bg-secondary ${window.location.href === route(link.link) && 'border-l-4 border-primary'}`}
                                     onClick={() => setIsOpen(false)}
                                 >
                                     <DynamicIcons name={link.icon} className="w-5 h-5"/>

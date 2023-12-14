@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('videos', function (Blueprint $table) {
+            $table->id();
+            $table->text('video');
+            $table->string('type');
+            $table->text('title');
+            $table->longText('description');
+            $table->foreignId('course_id');
+            $table->integer('number');
+
+            $table->unique(['number','course_id']);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('videos');
+    }
+};
