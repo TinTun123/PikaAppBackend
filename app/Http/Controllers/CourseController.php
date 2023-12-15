@@ -13,7 +13,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'courses' => Course::withCount('videos')->latest()->paginate(10),
+        ]);
     }
 
     /**

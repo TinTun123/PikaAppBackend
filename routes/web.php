@@ -36,4 +36,5 @@ Route::controller(AdminCourseController::class)->prefix('/courses')->name('cours
 Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lessons.')->group(function(){
     Route::post('/','store')->name('store');
     Route::post('/update/{video:id}','update')->name('update');
+    Route::delete('/destroy/{video:id}','destroy')->name('destroy');
 });

@@ -6,7 +6,7 @@ import Button from "../../../components/Button.jsx";
 import Textarea from "../../../components/Textarea.jsx";
 import lessons from "./Lessons.jsx";
 
-const LessonForm = ({showForm, setShowForm, lesson, courseId}) => {
+const LessonForm = ({showForm, setShowForm, lesson, latestLessonNumber, courseId}) => {
 
     const {data, setData, errors, post} = useForm(lesson ?? {});
 
@@ -16,9 +16,9 @@ const LessonForm = ({showForm, setShowForm, lesson, courseId}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(data);
         let url = lesson ? route('lessons.update', lesson.id) : route('lessons.store');
         post(url, {
+            preserveScroll: true,
             onSuccess: () => {
                 setShowForm(false);
             }
@@ -26,6 +26,15 @@ const LessonForm = ({showForm, setShowForm, lesson, courseId}) => {
     }
 
     useEffect(() => {
+        console.log(latestLessonNumber);
+
+        if (showForm && !lesson) {
+            setData({number : latestLessonNumber + 1, course_id : courseId});
+        }
+    }, [showForm, lesson])
+
+    useEffect(() => {
+        console.log(courseId);
         setData(pre => ({...pre, course_id: courseId}));
     }, [courseId])
 
@@ -34,7 +43,7 @@ const LessonForm = ({showForm, setShowForm, lesson, courseId}) => {
             <form onSubmit={handleSubmit} className={'flex flex-col gap-3'}>
                 <Input value={data?.title ?? ''} onChange={e => setData('title', e.target.value)} label={'Title'}
                        error={errors.title}/>
-                <Input value={data?.video ?? ''} onChange={e => setData('video', e.target.value)} label={'Vimeo Url'}
+                <Input value={data?.video ?? ''} onChange={e => setData('video', e.target.value)} label={'Vimeo ID'}
                        error={errors.video}/>
                 <Input type={'number'} value={data?.number ?? ''} onChange={e => setData('number', e.target.value)}
                        label={'Number'} error={errors.number}/>

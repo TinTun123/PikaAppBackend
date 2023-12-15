@@ -37,7 +37,7 @@ class AdminCourseController extends Controller
     {
         return inertia('Course/Form',[
             'course' => $course,
-            'lessons' => Video::where('course_id',$course->id)->latest('number')->paginate(10),
+            'lessons' => Video::where('course_id',$course->id)->orderBy('number')->paginate(9),
         ]);
     }
 

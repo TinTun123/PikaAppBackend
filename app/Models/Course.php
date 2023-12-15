@@ -10,6 +10,12 @@ class Course extends Model
 {
     use HasFactory;
 
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
     public function getImageAttribute()
     {
         return Storage::url($this->attributes['image']);

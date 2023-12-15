@@ -29,7 +29,6 @@ const Paginator = ({links}) => {
                                 Component={link?.url ? null : null}
                                 href={link.url}
                                 className={'!px-0 !py-0 !rounded-md bg-white !text-black !w-[40px] flex hover:bg-none border-none justify-center items-center !h-[40px] '}
-                                preserveState={true}
                                 preserveScroll={true}
                             >
                                 {

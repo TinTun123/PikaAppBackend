@@ -13,7 +13,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'sliders' => Slider::select('link','image')->get(),
+        ]);
     }
 
     /**

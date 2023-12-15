@@ -23,4 +23,10 @@ class AdminLessonController extends Controller
         $video->update($attributes);
         return back();
     }
+
+    public function destroy(Video $video)
+    {
+        $video->delete();
+        return back();
+    }
 }

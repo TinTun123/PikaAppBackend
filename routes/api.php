@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +27,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserAuthController::class,'getUser']);
 
 
+    Route::get('/sliders',[SliderController::class,'index']);
 
+
+    Route::get('/courses', [CourseController::class,'index']);
 
 });
 
