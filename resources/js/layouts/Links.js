@@ -16,6 +16,18 @@ let links = [
         link : 'sliders.index',
         icon : 'MdOutlineReviews',
         can : true
+    },
+       {
+        title: 'Category',
+        link : 'category.index',
+        icon : 'MdOutlineReviews',
+        can : true
+    },
+         {
+        title: 'Audios',
+        link : 'audio.index',
+        icon : 'MdOutlineReviews',
+        can : true
     }
 ]
 

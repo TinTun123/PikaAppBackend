@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminAudioController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminLessonController;
 use App\Http\Controllers\AdminSliderController;
@@ -37,4 +39,16 @@ Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lesso
     Route::post('/','store')->name('store');
     Route::post('/update/{video:id}','update')->name('update');
     Route::delete('/destroy/{video:id}','destroy')->name('destroy');
+});
+
+Route::controller(AdminCategoryController::class)->prefix('/category')->name('category.')->group(function() {
+    Route::get('/','index')->name('index');
+    Route::post('/store','store')->name('store');
+    Route::post('/{category:id}', 'update')->name('update');
+});
+
+Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/store', 'store')->name('store');
+    Route::post('/{category:id}', 'update')->name('update');
 });
