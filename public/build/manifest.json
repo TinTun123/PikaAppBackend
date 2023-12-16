@@ -1,0 +1,164 @@
+{
+  "ImageUploader.css": {
+    "file": "assets/ImageUploader-1d587128.css",
+    "src": "ImageUploader.css"
+  },
+  "_Button-580a0204.js": {
+    "file": "assets/Button-580a0204.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_ImageUploader-c5f83c33.js": {
+    "css": [
+      "assets/ImageUploader-1d587128.css"
+    ],
+    "file": "assets/ImageUploader-c5f83c33.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_Input-7c739dbf.js": {
+    "file": "assets/Input-7c739dbf.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_LessonForm-1c4f7963.js": {
+    "file": "assets/LessonForm-1c4f7963.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-31e6ab60.js",
+      "_Input-7c739dbf.js",
+      "_Button-580a0204.js",
+      "_Tooltip-646db666.js"
+    ],
+    "isDynamicEntry": true
+  },
+  "_Modal-31e6ab60.js": {
+    "file": "assets/Modal-31e6ab60.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Button-580a0204.js"
+    ]
+  },
+  "_Tooltip-646db666.js": {
+    "file": "assets/Tooltip-646db666.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-91391015.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/Pages/Course/CourseCard.jsx": {
+    "file": "assets/CourseCard-170e6db9.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Course/CourseCard.jsx"
+  },
+  "resources/js/Pages/Course/Form.jsx": {
+    "file": "assets/Form-7fca8b15.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_ImageUploader-c5f83c33.js",
+      "_Input-7c739dbf.js",
+      "_LessonForm-1c4f7963.js",
+      "_Button-580a0204.js",
+      "resources/js/Pages/Course/Lessons/Lessons.jsx",
+      "_Modal-31e6ab60.js",
+      "_Tooltip-646db666.js",
+      "resources/js/Pages/Course/Lessons/LessonCard.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Course/Form.jsx"
+  },
+  "resources/js/Pages/Course/Index.jsx": {
+    "file": "assets/Index-e75e2fb8.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Button-580a0204.js",
+      "resources/js/Pages/Course/CourseCard.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Course/Index.jsx"
+  },
+  "resources/js/Pages/Course/Lessons/LessonCard.jsx": {
+    "file": "assets/LessonCard-9d9017a5.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Tooltip-646db666.js",
+      "_Modal-31e6ab60.js",
+      "_Button-580a0204.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Course/Lessons/LessonCard.jsx"
+  },
+  "resources/js/Pages/Course/Lessons/Lessons.jsx": {
+    "file": "assets/Lessons-faf9789d.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Button-580a0204.js",
+      "_LessonForm-1c4f7963.js",
+      "resources/js/Pages/Course/Lessons/LessonCard.jsx",
+      "_Modal-31e6ab60.js",
+      "_Input-7c739dbf.js",
+      "_Tooltip-646db666.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Course/Lessons/Lessons.jsx"
+  },
+  "resources/js/Pages/Home.jsx": {
+    "file": "assets/Home-587361c3.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Home.jsx"
+  },
+  "resources/js/Pages/Slider/Index.jsx": {
+    "file": "assets/Index-71c4f488.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Button-580a0204.js",
+      "resources/js/Pages/Slider/SliderForm.jsx",
+      "_Modal-31e6ab60.js",
+      "_Input-7c739dbf.js",
+      "_ImageUploader-c5f83c33.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Slider/Index.jsx"
+  },
+  "resources/js/Pages/Slider/SliderForm.jsx": {
+    "file": "assets/SliderForm-ea6c588a.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-31e6ab60.js",
+      "_Input-7c739dbf.js",
+      "_ImageUploader-c5f83c33.js",
+      "_Button-580a0204.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Slider/SliderForm.jsx"
+  },
+  "resources/js/app.jsx": {
+    "dynamicImports": [
+      "resources/js/Pages/Course/CourseCard.jsx",
+      "resources/js/Pages/Course/Form.jsx",
+      "resources/js/Pages/Course/Index.jsx",
+      "resources/js/Pages/Course/Lessons/LessonCard.jsx",
+      "_LessonForm-1c4f7963.js",
+      "resources/js/Pages/Course/Lessons/Lessons.jsx",
+      "resources/js/Pages/Home.jsx",
+      "resources/js/Pages/Slider/Index.jsx",
+      "resources/js/Pages/Slider/SliderForm.jsx"
+    ],
+    "file": "assets/app-b64a3f89.js",
+    "isEntry": true,
+    "src": "resources/js/app.jsx"
+  }
+}
