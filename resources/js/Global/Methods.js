@@ -10,3 +10,8 @@ export const showSuccessToast = (message) => {
         icon: '',
     });
 };
+
+
+export const formatPrice = (number) => {
+    return (+number).toLocaleString() 
+}

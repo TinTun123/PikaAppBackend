@@ -39,7 +39,7 @@ const LessonCard = ({lesson, handleEdit}) => {
                         frameBorder="0" allow="autoplay; fullscreen; picture-in-picture"
                         className="absolute top-0 left-0 w-full h-full"></iframe>
                 </div>
-                <div className={'flex '}>
+                <div className={'flex mt-3'}>
                     <div className={'w-full'}>
                         <p className={'font-medium text-sm'}>{lesson.title}</p>
                         <p className={'text-[12px]'}>Lesson - <span className={'font-semibold'}>{lesson.number}</span>

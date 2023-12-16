@@ -48,7 +48,10 @@ const Form = ({course,lessons}) => {
                         </div>
                     </form>
                 </div>
+                {
+                    lessons &&
                 <Lessons lessons={lessons} courseId={course?.id}  />
+                }
             </div>
         </>
     );
