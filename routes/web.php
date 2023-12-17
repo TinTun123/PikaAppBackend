@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAudioController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminLessonController;
+use App\Http\Controllers\AdminPopularPodcastController;
 use App\Http\Controllers\AdminSliderController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,4 +52,8 @@ Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/{audio:id}', 'update')->name('update');
+});
+
+Route::controller(AdminPopularPodcastController::class)->prefix('/popular')->name('popular.')->group(function(){
+    Route::get('/','index')->name('index');
 });

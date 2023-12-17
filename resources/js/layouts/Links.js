@@ -1,33 +1,39 @@
 let links = [
     {
         title: 'Dashboard',
-        link : 'index',
-        icon : 'RxDashboard',
-        can : true
+        link: 'index',
+        icon: 'RxDashboard',
+        can: true
     },
     {
         title: 'Course',
-        link : 'courses.index',
-        icon : 'MdOutlinePlayLesson',
-        can : true
+        link: 'courses.index',
+        icon: 'MdOutlinePlayLesson',
+        can: true
     },
     {
         title: 'Sliders',
-        link : 'sliders.index',
-        icon : 'MdOutlineReviews',
-        can : true
+        link: 'sliders.index',
+        icon: 'MdOutlineReviews',
+        can: true
     },
-       {
+    {
         title: 'Category',
-        link : 'category.index',
-        icon : 'MdOutlineReviews',
-        can : true
+        link: 'category.index',
+        icon: 'MdOutlineReviews',
+        can: true
     },
-         {
+    {
         title: 'Audios',
-        link : 'audio.index',
-        icon : 'MdOutlineReviews',
-        can : true
+        link: 'audio.index',
+        icon: 'MdOutlineReviews',
+        can: true
+    },
+    {
+        title: 'Popular Podcasts',
+        link: 'popular.index',
+        icon: 'MdOutlineReviews',
+        can: true
     }
 ]
 
