@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
 
     Route::get('/courses', [CourseController::class,'index']);
+    Route::get('/courses/{course:id}',[CourseController::class,'show']);
 
+    Route::get('/lessons/{video:id}',[VideoController::class,'show']);
+
+    Route::get('categories',[CategoryController::class,'index']);
 });
 

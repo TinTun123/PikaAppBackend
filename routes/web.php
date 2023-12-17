@@ -50,5 +50,5 @@ Route::controller(AdminCategoryController::class)->prefix('/category')->name('ca
 Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')->group(function () {
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
-    Route::post('/{category:id}', 'update')->name('update');
+    Route::post('/{audio:id}', 'update')->name('update');
 });

@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAudioRequest;
+use App\Http\Requests\UpdateAudioRequest;
 use App\Models\Audio;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminAudioController extends Controller
 {
     public function index()
     {
-        $audios = Audio::paginate(10);
+        $audios = Audio::with('category')->paginate(10);
         return inertia('Audio/Index',[
             'audios' => $audios, 
+            'categories' => Category::select('id','name')->get()
         ]);
     }
 
@@ -20,11 +23,15 @@ class AdminAudioController extends Controller
     {
         $attributes = $request->only('title','file','category_id','time','price','description','author');
         $attributes['image'] = $request->file('image')->store('audio');
+        Audio::create($attributes);
+        return back();
     }
 
-    public function updae()
+    public function update(UpdateAudioRequest $request,Audio $audio)
     {
-
+        $attributes = $request->only('title', 'file', 'category_id', 'time', 'price', 'description', 'author');
+        $audio->update($attributes);
+        return back();
     }
 
 }
