@@ -24,7 +24,7 @@ let links = [
         can: true
     },
     {
-        title: 'Audios',
+        title: 'Podcasts',
         link: 'audio.index',
         icon: 'MdOutlineReviews',
         can: true
@@ -32,6 +32,18 @@ let links = [
     {
         title: 'Popular Podcasts',
         link: 'popular.index',
+        icon: 'MdOutlineReviews',
+        can: true
+    },
+    {
+        title: 'Recommended Podcasts',
+        link: 'recommended.index',
+        icon: 'MdOutlineReviews',
+        can: true
+    },
+    {
+        title: 'Version',
+        link: 'version.index',
         icon: 'MdOutlineReviews',
         can: true
     }

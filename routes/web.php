@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminLessonController;
 use App\Http\Controllers\AdminPopularPodcastController;
+use App\Http\Controllers\AdminRecommendedPodcastController;
 use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\AdminVersionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,8 +54,19 @@ Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/{audio:id}', 'update')->name('update');
+    Route::post('/popular/{audio:id}', 'togglePopular')->name('togglePopular');
+    Route::post('/recommended/{audio:id}', 'toggleRecommended')->name('toggleRecommended');
 });
 
 Route::controller(AdminPopularPodcastController::class)->prefix('/popular')->name('popular.')->group(function(){
     Route::get('/','index')->name('index');
+});
+
+Route::controller(AdminRecommendedPodcastController::class)->prefix('/recommended')->name('recommended.')->group(function(){
+    Route::get('/','index')->name('index');
+});
+
+Route::controller(AdminVersionController::class)->prefix('version')->name('version.')->group(function(){
+    Route::get('/','index')->name('index');
+    Route::post('/','update')->name('update');
 });

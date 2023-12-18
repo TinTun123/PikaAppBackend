@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PopularPodcastController;
+use App\Http\Controllers\RecommendedPodcastController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\VersionController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,5 +41,13 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/lessons/{video:id}',[VideoController::class,'show']);
 
     Route::get('categories',[CategoryController::class,'index']);
+
+    Route::get('/version',[VersionController::class,'index']);
+
+    Route::get('popular',[PopularPodcastController::class,'index']);
+
+    Route::get('recommended', [RecommendedPodcastController::class, 'index']);
+
+
 });
 

@@ -34,4 +34,18 @@ class AdminAudioController extends Controller
         return back();
     }
 
+    public function togglePopular(Audio $audio)
+    {
+        $audio->update(['popular' => !$audio->popular]);
+        return back();
+    }
+
+    public function toggleRecommended(Audio $audio)
+    {
+        $audio->update(['recommended' => !$audio->recommended]);
+        return back();
+    }
+
+
+
 }

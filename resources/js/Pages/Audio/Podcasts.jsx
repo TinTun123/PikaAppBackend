@@ -1,28 +1,26 @@
 import React from 'react'
+import { useForm } from '@inertiajs/react';
 import Table from '../../components/Table';
 import TableData from '../../components/TableData';
 import TableRow from '../../components/TableRow';
 import Button from '../../components/Button';
 import { Dropdown } from 'flowbite-react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
-import { useForm } from '@inertiajs/react';
 
+const Podcasts = ({podcasts}) => {
+  const columns = [
+    { field: 'Title' },
+    { field: 'price' },
+    { field: 'image' },
+    { field: 'file' },
+    { field: 'category' },
+    { field: 'popular' },
+    { field: 'recommended' },
+    { field: 'description' },
+    { field: 'author' },
+  ]
 
-const columns = [
-  { field: 'Title' },
-  { field: 'price' },
-  { field: 'image' },
-  { field: 'file' },
-  { field: 'category' },
-  { field: 'popular' },
-  { field: 'description' },
-  { field: 'author' },
-]
-
-const Index = ({podcasts}) => {
-
-  const {post} = useForm({});
-
+  const { post } = useForm({});
   const togglePopular = (id, popular) => {
     post(route('audio.togglePopular', id), {
       onSuccess: () => {
@@ -31,6 +29,13 @@ const Index = ({podcasts}) => {
     });
   }
 
+  const toggleRecommended = (id, recommended) => {
+    post(route('audio.toggleRecommended', id), {
+      onSuccess: () => {
+
+      }
+    });
+  }
 
   return (
     <div>
@@ -62,6 +67,11 @@ const Index = ({podcasts}) => {
                 </Button>
               </TableData>
               <TableData>
+                <Button onClick={() => toggleRecommended(item.id, item.recommended)}>
+                  {item.recommended ? 'Remove' : 'Add'}
+                </Button>
+              </TableData>
+              <TableData>
                 {item.description}
               </TableData>
               <TableData>
@@ -85,4 +95,4 @@ const Index = ({podcasts}) => {
   )
 }
 
-export default Index;
+export default Podcasts;

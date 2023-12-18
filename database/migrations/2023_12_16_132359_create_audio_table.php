@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('price');
             $table->string('description');
             $table->string('author');
+            $table->boolean('popular')->default(false);
+            $table->boolean('recommended')->default(false);
             $table->timestamps();
         });
     }

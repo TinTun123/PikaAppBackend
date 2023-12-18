@@ -1,0 +1,1 @@
+import{r as t,j as r}from"./app-36359947.js";import{B as o}from"./Button-f654e2a1.js";import a from"./CourseCard-b7307da7.js";const u=({courses:s})=>(t.useState(!1),r.jsxs(r.Fragment,{children:[r.jsx("div",{children:r.jsx(o,{href:route("courses.create"),children:"Create Course"})}),r.jsx("div",{children:s.data.map(e=>r.jsx(a,{course:e},e.id))})]}));export{u as default};
