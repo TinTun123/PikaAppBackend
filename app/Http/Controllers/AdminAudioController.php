@@ -34,6 +34,13 @@ class AdminAudioController extends Controller
         return back();
     }
 
+
+    public function destroy(Audio $audio)
+    {
+        $audio->delete();
+        return back();
+    }
+
     public function togglePopular(Audio $audio)
     {
         $audio->update(['popular' => !$audio->popular]);

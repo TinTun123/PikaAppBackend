@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminRecommendedPodcastController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminVersionController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,7 @@ Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')
     Route::get('/', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/{audio:id}', 'update')->name('update');
+    Route::delete('/{audio:id}', 'destroy')->name('destroy');
     Route::post('/popular/{audio:id}', 'togglePopular')->name('togglePopular');
     Route::post('/recommended/{audio:id}', 'toggleRecommended')->name('toggleRecommended');
 });

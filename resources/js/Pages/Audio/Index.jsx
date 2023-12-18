@@ -12,8 +12,7 @@ import Podcasts from './Podcasts';
 
 const Index = ({ categories, audios }) => {
 
-  const { prepareForEdit, prepareNewForm, formOpen, setFormOpen, current, setCurrent } = useCommon()
-
+  const { prepareForEdit, prepareNewForm, formOpen, setFormOpen, current } = useCommon()
 
   return (
     <>
@@ -21,7 +20,7 @@ const Index = ({ categories, audios }) => {
         <Button onClick={prepareNewForm} >Create Audio</Button>
       </div>
       <Form categories={categories} current={current} show={formOpen} setFormOpen={setFormOpen} />
-      <Podcasts podcasts={audios.data} />
+      <Podcasts prepareForEdit={prepareForEdit} current={current}  podcasts={audios.data} />
     </>
 
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from '@inertiajs/react';
 import Table from '../../components/Table';
 import TableData from '../../components/TableData';
@@ -6,8 +6,15 @@ import TableRow from '../../components/TableRow';
 import Button from '../../components/Button';
 import { Dropdown } from 'flowbite-react';
 import { BsThreeDotsVertical } from 'react-icons/bs';
+import ConfirmModal from '../../components/ConfirmModal';
 
-const Podcasts = ({podcasts}) => {
+
+const Podcasts = ({ podcasts, prepareForEdit }) => {
+
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
+  const [currentPodcast, setCurrentPodcast] = useState(null);
+  const { delete: deletePodcastMethod } = useForm({});
+
   const columns = [
     { field: 'Title' },
     { field: 'price' },
@@ -37,8 +44,22 @@ const Podcasts = ({podcasts}) => {
     });
   }
 
+  const prepareForDelete = (podcast) => {
+    setConfirmModalOpen(true);
+    setCurrentPodcast(podcast);
+  };
+
+  const deletePodcast = () => {
+    deletePodcastMethod(route('audio.destroy', currentPodcast.id), {
+      onSuccess: () => {
+        setConfirmModalOpen(false);
+      }
+    });
+  }
+
   return (
     <div>
+      <ConfirmModal onCancel={() => setConfirmModalOpen(false)} onConfirm={deletePodcast} show={confirmModalOpen} />
       <Table columns={columns}>
         {
           podcasts.map(item => (
@@ -84,7 +105,7 @@ const Podcasts = ({podcasts}) => {
                   </div>
                 )}>
                   <Dropdown.Item onClick={() => prepareForEdit(item)}>Edit</Dropdown.Item>
-                  <Dropdown.Item onClick={() => openDeleteModal(item)}>Delete</Dropdown.Item>
+                  <Dropdown.Item onClick={() => prepareForDelete(item)}>Delete</Dropdown.Item>
                 </Dropdown>
               </TableData>
             </TableRow>
