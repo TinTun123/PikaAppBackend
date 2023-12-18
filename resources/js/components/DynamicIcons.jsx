@@ -1,18 +1,26 @@
 import React from "react";
 import {MdOutlinePlayLesson, MdOutlineReviews} from "react-icons/md";
-import {IoShareSocialOutline} from "react-icons/io5";
-import {TfiLayoutSliderAlt} from "react-icons/tfi";
-import {BsChatLeftText} from "react-icons/bs";
 import {RxDashboard} from "react-icons/rx";
+import { PiUsers } from "react-icons/pi";
+import { BsSliders2 } from "react-icons/bs";
+import { MdOutlineCategory } from "react-icons/md";
+import { PiApplePodcastsLogoThin } from "react-icons/pi";
+import { FaRegStar } from "react-icons/fa";
+import { FaRegShareFromSquare } from "react-icons/fa6";
+import { GoVersions } from "react-icons/go";
 
 const DynamicIcons = (props) => {
     const icons = {
         RxDashboard,
         MdOutlinePlayLesson,
         MdOutlineReviews,
-        IoShareSocialOutline,
-        TfiLayoutSliderAlt,
-        BsChatLeftText
+        PiUsers,
+        BsSliders2,
+        MdOutlineCategory,
+        PiApplePodcastsLogoThin,
+        FaRegStar,
+        FaRegShareFromSquare,
+        GoVersions,
     };
 
     const TagComponent = icons[props.name];

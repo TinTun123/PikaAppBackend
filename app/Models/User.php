@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+
+    public function favoritePodcasts()
+    {
+        return $this->belongsToMany(Audio::class, 'favorite_podcasts','user_id','audio_id');
+    }
 }

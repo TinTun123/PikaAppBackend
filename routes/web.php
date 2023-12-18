@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminLessonController;
 use App\Http\Controllers\AdminPopularPodcastController;
 use App\Http\Controllers\AdminRecommendedPodcastController;
 use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminVersionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,11 @@ use Illuminate\Support\Facades\Storage;
 Route::get('/', function () {
     return inertia('Home');
 })->name('index');
+
+Route::controller(AdminUserController::class)->prefix('user')->name('users.')->group(function(){
+    Route::get('/','index')->name('index');
+});
+
 
 Route::controller(AdminSliderController::class)->prefix('/sliders')->name('sliders.')->group(function () {
     Route::get('/', 'index')->name('index');

@@ -12,39 +12,45 @@ let links = [
         can: true
     },
     {
+        title: 'Users',
+        link: 'users.index',
+        icon: 'PiUsers',
+        can: true
+    },
+    {
         title: 'Sliders',
         link: 'sliders.index',
-        icon: 'MdOutlineReviews',
+        icon: 'BsSliders2',
         can: true
     },
     {
         title: 'Category',
         link: 'category.index',
-        icon: 'MdOutlineReviews',
+        icon: 'MdOutlineCategory',
         can: true
     },
     {
         title: 'Podcasts',
         link: 'audio.index',
-        icon: 'MdOutlineReviews',
+        icon: 'PiApplePodcastsLogoThin',
         can: true
     },
     {
         title: 'Popular Podcasts',
         link: 'popular.index',
-        icon: 'MdOutlineReviews',
+        icon: 'FaRegStar',
         can: true
     },
     {
         title: 'Recommended Podcasts',
         link: 'recommended.index',
-        icon: 'MdOutlineReviews',
+        icon: 'FaRegShareFromSquare',
         can: true
     },
     {
         title: 'Version',
         link: 'version.index',
-        icon: 'MdOutlineReviews',
+        icon: 'GoVersions',
         can: true
     }
 ]

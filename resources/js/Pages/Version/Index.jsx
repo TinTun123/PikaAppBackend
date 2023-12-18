@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { useForm } from '@inertiajs/react';
+import { showSuccessToast } from '../../Global/Methods';
 
 const Index = ({version}) => {
 
@@ -11,7 +12,7 @@ const Index = ({version}) => {
     e.preventDefault();
     post(route('version.update'),{
       onSuccess : () => {
-
+        showSuccessToast('Version is updated ')
       }
     });
   }
