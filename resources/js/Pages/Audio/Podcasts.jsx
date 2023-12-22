@@ -57,6 +57,8 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
     });
   }
 
+  console.log(podcasts);
+
   return (
     <div>
       <ConfirmModal onCancel={() => setConfirmModalOpen(false)} onConfirm={deletePodcast} show={confirmModalOpen} />
@@ -76,7 +78,7 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
               <TableData>
                 <audio controls>
                   {/* http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3 */}
-                  <source src={item.file} type="audio/mp3" />
+                  <source src={item.playable_file} type="audio/mp3" />
                 </audio>
               </TableData>
               <TableData>

@@ -27,6 +27,11 @@ body{
 .glide__bullet--active #dot{
     @apply fill-primary;
 }
+
+.filepond--drop-label {
+    @apply bg-white p-10 border-[1.9px] border-gray-400 border-dashed mb-2;
+}
+
 textarea{
     resize: none;
 }

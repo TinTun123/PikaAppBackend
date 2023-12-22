@@ -64,6 +64,7 @@ Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')
     Route::delete('/{audio:id}', 'destroy')->name('destroy');
     Route::post('/popular/{audio:id}', 'togglePopular')->name('togglePopular');
     Route::post('/recommended/{audio:id}', 'toggleRecommended')->name('toggleRecommended');
+
 });
 
 Route::controller(AdminPopularPodcastController::class)->prefix('/popular')->name('popular.')->group(function(){

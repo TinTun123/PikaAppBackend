@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAudioController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FavoritePodcastController;
@@ -56,3 +57,5 @@ Route::middleware('auth:sanctum')->group(function () {
 
 });
 
+Route::post('/audio/upload', [AdminAudioController::class, 'uploadPodcast']);
+Route::post('/audio/remove', [AdminAudioController::class, 'removePodcast']);

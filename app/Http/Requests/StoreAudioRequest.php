@@ -25,7 +25,7 @@ class StoreAudioRequest extends FormRequest
             'title' => 'required',
             'file' => 'required',
             'category_id' => 'required',
-            'time' => 'required',
+            // 'time' => 'required',
             'price' => 'required',
             'description' => 'required',
             'author' => 'required',

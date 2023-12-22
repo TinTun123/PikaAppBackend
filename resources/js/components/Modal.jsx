@@ -21,7 +21,7 @@ const Modal = ({children , show , onClose} ) => {
                                         exit={{opacity: 0 }}
                                         transition={{duration: 0.2}}
                                         onClick={(e) => e.stopPropagation()}
-                                        className="w-[95%] max-w-[540px] z-30 !max-h-[90vh] overflow-hidden p-5 overflow-y-auto custom-scrollbar bg-white  rounded-md shadow-xl transition-all transform"
+                                        className="w-[95%] max-w-[540px] z-30 !max-h-[90vh] overflow-hidden p-5 overflow-y-auto custom-scrollbar bg-white  rounded-md shadow-xl transition-all duration-1000 transform"
                                     >
                                         {children}
                                     </motion.div>

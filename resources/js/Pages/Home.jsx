@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+
+import AudioUploader from '../components/AudioUploader';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,6 +12,8 @@ import {
     Legend,
 } from 'chart.js';
 import {Line} from 'react-chartjs-2';
+import axios from 'axios';
+import { usePage } from '@inertiajs/react';
 
 ChartJS.register(
     CategoryScale,
@@ -37,10 +41,29 @@ export const options = {
 
 const Home = () => {
 
+    const page = usePage();
+    const [url,setUrl] = useState(null);
+    const hitTheServer = async () => {
+        let res = await axios.post('api/audio/upload', { csrf_token: page.props.csrf_token });
+        console.log(res);
+    }
+
+    useEffect(()=> {
+        setTimeout(()=> {
+            console.log('reloading');
+            setUrl('http://localhost:8000/storage/podcasts/ZmDLSviA0zHXc3Hg4y9kEaoncDxZe3KHizOirKV4.mp3');
+        },[2000 ])
+    },[])
+
     return (
         <div className={'w-full grid grid-cols-1 lg:grid-cols-2 gap-5'}>
-            <App/>
-            <App/>
+            <AudioUploader />
+            <button onClick={hitTheServer}>Hit the server</button>
+
+            <audio controls>
+                <source src={url} type='audio/mp3'> 
+                </source>
+            </audio>
         </div>
     );
 };
@@ -75,8 +98,8 @@ function App() {
 
     return (
         <div className={'w-full p-5 bg-white'}>
-            <Line width={500} height={300} options={options} data={data}
-            />
+            {/* <Line width={500} height={300} options={options} data={data}
+            /> */}
         </div>
     );
 }

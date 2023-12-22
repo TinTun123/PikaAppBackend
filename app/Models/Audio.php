@@ -10,10 +10,19 @@ class Audio extends Model
 {
     use HasFactory;
 
+    protected $appends = ['playable_file'];
+
     public function getImageAttribute()
     {
         return Storage::url($this->attributes['image']);
     }
+
+    public function getPlayableFileAttribute()
+    {
+        return Storage::url($this->attributes['file']);
+    }
+
+
 
     public function category()
     {
