@@ -20,4 +20,9 @@ class Course extends Model
     {
         return Storage::url($this->attributes['image']);
     }
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }

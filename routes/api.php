@@ -25,34 +25,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::post('/register', [UserAuthController::class,'register']);
-Route::post('/login', [UserAuthController::class,'login']);
+Route::post('/register', [UserAuthController::class, 'register']);
+Route::post('/login', [UserAuthController::class, 'login']);
+Route::post('/forget-password', [UserAuthController::class, 'forgetPassword']);
+Route::post('/reset-password', [UserAuthController::class, 'resetPassword']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('/logout', [UserAuthController::class,'logout']);
-    Route::get('/user', [UserAuthController::class,'getUser']);
+    Route::post('/logout', [UserAuthController::class, 'logout']);
+    Route::get('/user', [UserAuthController::class, 'getUser']);
 
 
-    Route::get('/sliders',[SliderController::class,'index']);
+    Route::get('/sliders', [SliderController::class, 'index']);
 
 
-    Route::get('/courses', [CourseController::class,'index']);
-    Route::get('/courses/{course:id}',[CourseController::class,'show']);
+    Route::get('/courses', [CourseController::class, 'index']);
+    Route::get('/courses/{course:id}', [CourseController::class, 'show']);
 
-    Route::get('/lessons/{video:id}',[VideoController::class,'show']);
+    Route::get('/lessons/{video:id}', [VideoController::class, 'show']);
 
-    Route::get('categories',[CategoryController::class,'index']);
+    Route::get('categories', [CategoryController::class, 'index']);
 
-    Route::get('/version',[VersionController::class,'index']);
+    Route::get('/version', [VersionController::class, 'index']);
 
-    Route::get('popular',[PopularPodcastController::class,'index']);
+    Route::get('popular', [PopularPodcastController::class, 'index']);
 
     Route::get('recommended', [RecommendedPodcastController::class, 'index']);
 
-    Route::controller(FavoritePodcastController::class)->prefix('favorite')->group(function(){
-        Route::get('/','index');
-        Route::post('/{audio:id}','toggleFavorite');
+    Route::controller(FavoritePodcastController::class)->prefix('favorite')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/{audio:id}', 'toggleFavorite');
     });
 
 });

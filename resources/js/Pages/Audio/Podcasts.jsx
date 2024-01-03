@@ -60,7 +60,7 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
   console.log(podcasts);
 
   return (
-    <div>
+    <div className={'overflow-x-scroll'}>
       <ConfirmModal onCancel={() => setConfirmModalOpen(false)} onConfirm={deletePodcast} show={confirmModalOpen} />
       <Table columns={columns}>
         {

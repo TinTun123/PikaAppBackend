@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminAudioController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminLessonController;
+use App\Http\Controllers\AdminModuleController;
 use App\Http\Controllers\AdminPopularPodcastController;
 use App\Http\Controllers\AdminRecommendedPodcastController;
 use App\Http\Controllers\AdminSliderController;
@@ -27,8 +28,8 @@ Route::get('/', function () {
     return inertia('Home');
 })->name('index');
 
-Route::controller(AdminUserController::class)->prefix('user')->name('users.')->group(function(){
-    Route::get('/','index')->name('index');
+Route::controller(AdminUserController::class)->prefix('user')->name('users.')->group(function () {
+    Route::get('/', 'index')->name('index');
 });
 
 
@@ -37,23 +38,29 @@ Route::controller(AdminSliderController::class)->prefix('/sliders')->name('slide
     Route::post('/', 'store')->name('store');
 });
 
-Route::controller(AdminCourseController::class)->prefix('/courses')->name('courses.')->group(function(){
-    Route::get('/','index')->name('index');
-    Route::get('/create','create')->name('create');
-    Route::post('/','store')->name('store');
-    Route::get('/edit/{course:id}','edit')->name('edit');
-    Route::post('/update/{course:id}','update')->name('update');
+Route::controller(AdminCourseController::class)->prefix('/courses')->name('courses.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/create', 'create')->name('create');
+    Route::post('/', 'store')->name('store');
+    Route::get('/edit/{course:id}', 'edit')->name('edit');
+    Route::post('/update/{course:id}', 'update')->name('update');
 });
 
-Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lessons.')->group(function(){
-    Route::post('/','store')->name('store');
-    Route::post('/update/{video:id}','update')->name('update');
-    Route::delete('/destroy/{video:id}','destroy')->name('destroy');
+Route::controller(AdminModuleController::class)->prefix('/module')->name('module.')->group(function () {
+    Route::post('/', 'store')->name('store');
+    Route::post('/update/{module:id}', 'update')->name('update');
+    Route::delete('/destroy/{module:id}', 'destroy')->name('destroy');
 });
 
-Route::controller(AdminCategoryController::class)->prefix('/category')->name('category.')->group(function() {
-    Route::get('/','index')->name('index');
-    Route::post('/store','store')->name('store');
+Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lessons.')->group(function () {
+    Route::post('/', 'store')->name('store');
+    Route::post('/update/{video:id}', 'update')->name('update');
+    Route::delete('/destroy/{video:id}', 'destroy')->name('destroy');
+});
+
+Route::controller(AdminCategoryController::class)->prefix('/category')->name('category.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/store', 'store')->name('store');
     Route::post('/{category:id}', 'update')->name('update');
 });
 
@@ -67,15 +74,15 @@ Route::controller(AdminAudioController::class)->prefix('/audio')->name('audio.')
 
 });
 
-Route::controller(AdminPopularPodcastController::class)->prefix('/popular')->name('popular.')->group(function(){
-    Route::get('/','index')->name('index');
+Route::controller(AdminPopularPodcastController::class)->prefix('/popular')->name('popular.')->group(function () {
+    Route::get('/', 'index')->name('index');
 });
 
-Route::controller(AdminRecommendedPodcastController::class)->prefix('/recommended')->name('recommended.')->group(function(){
-    Route::get('/','index')->name('index');
+Route::controller(AdminRecommendedPodcastController::class)->prefix('/recommended')->name('recommended.')->group(function () {
+    Route::get('/', 'index')->name('index');
 });
 
-Route::controller(AdminVersionController::class)->prefix('version')->name('version.')->group(function(){
-    Route::get('/','index')->name('index');
-    Route::post('/','update')->name('update');
+Route::controller(AdminVersionController::class)->prefix('version')->name('version.')->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'update')->name('update');
 });

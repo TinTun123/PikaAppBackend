@@ -6,9 +6,9 @@ import Button from "../../components/Button.jsx";
 import ImageUploader from "../../components/ImageUploader.jsx";
 import {useForm} from "@inertiajs/react";
 import BackButton from "../../components/BackButton.jsx";
-import Lessons from "./Lessons/Lessons.jsx";
+import Modules from "./Module/Modules.jsx";
 
-const Form = ({course,lessons}) => {
+const Form = ({course}) => {
 
     const {data, setData, errors, processing, post} = useForm(course ?? {});
 
@@ -48,10 +48,8 @@ const Form = ({course,lessons}) => {
                         </div>
                     </form>
                 </div>
-                {
-                    lessons &&
-                <Lessons lessons={lessons} courseId={course?.id}  />
-                }
+
+                <Modules course={course} />
             </div>
         </>
     );

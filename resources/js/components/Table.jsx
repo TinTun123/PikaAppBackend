@@ -2,7 +2,7 @@
 const Table = ({columns, children}) => {
 
     return (
-        <table className="w-full whitespace-no-wrap">
+        <table className="w-full whitespace-no-wrap overflow-x-scroll">
             <thead>
             <tr
                 className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b "

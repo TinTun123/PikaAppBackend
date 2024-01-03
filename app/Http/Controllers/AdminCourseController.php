@@ -13,7 +13,7 @@ class AdminCourseController extends Controller
     public function index()
     {
         $courses = Course::paginate(10);
-        return inertia('Course/Index',[
+        return inertia('Course/Index', [
             'courses' => $courses,
         ]);
     }
@@ -26,7 +26,7 @@ class AdminCourseController extends Controller
 
     public function store(StoreCourseRequest $request)
     {
-        $attributes = $request->only('title','description','instructor','price');
+        $attributes = $request->only('title', 'description', 'instructor', 'price');
         $attributes['image'] = $request->file('image')->store('course');
         Course::create($attributes);
 
@@ -35,15 +35,16 @@ class AdminCourseController extends Controller
 
     public function edit(Course $course)
     {
-        return inertia('Course/Form',[
-            'course' => $course,
-            'lessons' => Video::where('course_id',$course->id)->orderBy('number')->paginate(9),
+        return inertia('Course/Form', [
+            'course' => $course->load(['modules' => function ($query) {
+                $query->with('videos');
+            }])
         ]);
     }
 
     public function update(Course $course, UpdateCourseRequest $request)
     {
-        $attributes = $request->only('title','description','instructor','price');
+        $attributes = $request->only('title', 'description', 'instructor', 'price');
         $course->update($attributes);
         return back();
     }

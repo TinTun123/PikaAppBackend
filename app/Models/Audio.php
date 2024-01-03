@@ -19,9 +19,12 @@ class Audio extends Model
 
     public function getPlayableFileAttribute()
     {
-        return Storage::url($this->attributes['file']);
+        if (isset($this->attributes['file'])) {
+            return Storage::url($this->attributes['file']);
+        } else {
+            return null;
+        }
     }
-
 
 
     public function category()

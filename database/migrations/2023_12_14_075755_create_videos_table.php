@@ -18,9 +18,10 @@ return new class extends Migration
             $table->text('title');
             $table->longText('description');
             $table->foreignId('course_id');
+            $table->foreignId('module_id');
             $table->integer('number');
 
-            $table->unique(['number','course_id']);
+            $table->unique(['number','module_id']);
             $table->timestamps();
         });
     }
