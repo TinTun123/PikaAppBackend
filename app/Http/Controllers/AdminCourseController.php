@@ -28,9 +28,9 @@ class AdminCourseController extends Controller
     {
         $attributes = $request->only('title', 'description', 'instructor', 'price');
         $attributes['image'] = $request->file('image')->store('course');
-        Course::create($attributes);
+        $course = Course::create($attributes);
 
-        return back();
+        return redirect()->route('courses.edit', $course->id);
     }
 
     public function edit(Course $course)
@@ -48,5 +48,4 @@ class AdminCourseController extends Controller
         $course->update($attributes);
         return back();
     }
-
 }

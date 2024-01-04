@@ -11,7 +11,7 @@ class AdminLessonController extends Controller
 {
     public function store(StoreLessonRequest $request)
     {
-        $attributes = $request->only('title', 'description', 'number', 'video', 'course_id');
+        $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
         $attributes['type'] = 'vimeo';
         Video::create($attributes);
         return back();
@@ -19,7 +19,7 @@ class AdminLessonController extends Controller
 
     public function update(Video $video, UpdateLessonRequest $request)
     {
-        $attributes = $request->only('title', 'description', 'number', 'video', 'course_id');
+        $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
         $video->update($attributes);
         return back();
     }
