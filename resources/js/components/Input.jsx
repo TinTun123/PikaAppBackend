@@ -8,7 +8,7 @@ const Input = ({type = 'text', label, error, className = '', ...rest}) => {
             }
             <input  {...rest}
                     type={type}
-                    className={'w-[100%] border-primary border-[.1px]  focus:ring-4 focus:ring-primary focus:ring-opacity-10 px-2 placeholder:text-gray-400 h-[40px] ' + className}/>
+                    className={'w-[100%] border-primary border-[.1px]  focus:ring-4 focus:ring-primary focus:ring-opacity-10 px-2 placeholder:text-gray-400 h-[38px] ' + className}/>
             {
                 error && <p className={'text-red-500 text-sm'}>{error}</p>
             }

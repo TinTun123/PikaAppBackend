@@ -4,8 +4,6 @@ import CourseCard from "./CourseCard.jsx";
 
 const Index = ({courses}) => {
 
-    const [showForm,setShowForm] = useState(false);
-
     return (
         <>
             <div>

@@ -11,6 +11,10 @@ class AdminLessonController extends Controller
 {
     public function store(StoreLessonRequest $request)
     {
+        $moduleExist = Video::where('module_id', $request->module_id)->where('number', $request->number)->first();
+        if ($moduleExist) {
+            return back()->withErrors(['number' => 'Video with the same number already exists!']);
+        }
         $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
         $attributes['type'] = 'vimeo';
         Video::create($attributes);
@@ -19,6 +23,12 @@ class AdminLessonController extends Controller
 
     public function update(Video $video, UpdateLessonRequest $request)
     {
+        if ($video->number !== $request->number) {
+            $videoExist = Video::where('module_id', $video->module_id)->where('number', $request->number)->first();
+            if ($videoExist) {
+                return back()->withErrors(['number' => 'Video with the same number already exists!']);
+            }
+        }
         $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
         $video->update($attributes);
         return back();

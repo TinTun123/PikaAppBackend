@@ -1,15 +1,15 @@
-import React, {useState} from 'react';
-import {Dropdown} from "flowbite-react";
-import {BsThreeDotsVertical} from "react-icons/bs";
+import React, { useState } from 'react';
+import { Dropdown } from "flowbite-react";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import ConfirmModal from "../../../components/ConfirmModal.jsx";
-import {useForm} from "@inertiajs/react";
+import { useForm } from "@inertiajs/react";
 
-const LessonCard = ({lesson, handleEdit}) => {
+const LessonCard = ({ lesson, handleEdit }) => {
 
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
     const [currentLesson, setCurrentLesson] = useState(null);
 
-    const {delete : deleteMethod} = useForm({});
+    const { delete: deleteMethod } = useForm({});
 
     const openDeleteModal = (currentLesson) => {
         setCurrentLesson(currentLesson);
@@ -18,9 +18,9 @@ const LessonCard = ({lesson, handleEdit}) => {
 
 
     const deleteLesson = () => {
-        deleteMethod(route('lessons.destroy', currentLesson?.id),{
-            preserveScroll : true,
-            onSuccess : () => {
+        deleteMethod(route('lessons.destroy', currentLesson?.id), {
+            preserveScroll: true,
+            onSuccess: () => {
                 setConfirmModalOpen(true);
             }
         })
@@ -28,11 +28,10 @@ const LessonCard = ({lesson, handleEdit}) => {
 
     return (
         <div>
-            <ConfirmModal onCancel={()=> setConfirmModalOpen(false)} onConfirm={deleteLesson} show={confirmModalOpen} />
-            <div className={'group'}>
+            <ConfirmModal onCancel={() => setConfirmModalOpen(false)} onConfirm={deleteLesson} show={confirmModalOpen} />
+            <div className={'group border p-3'}>
                 {/*800946029*/}
                 {/*894419244*/}
-
                 <div className="relative p-32">
                     <iframe
                         src={`https://player.vimeo.com/video/${lesson.video}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
@@ -47,7 +46,7 @@ const LessonCard = ({lesson, handleEdit}) => {
                     </div>
                     <Dropdown className={'bg-white'} label='' renderTrigger={() => (
                         <div className={'cursor-pointer'}>
-                            <BsThreeDotsVertical/>
+                            <BsThreeDotsVertical />
                         </div>
                     )}>
                         <Dropdown.Item onClick={() => handleEdit(lesson)}>Edit</Dropdown.Item>

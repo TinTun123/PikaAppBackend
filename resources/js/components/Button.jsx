@@ -8,7 +8,7 @@ const Button = ({loading, children, type = 'button', onClick, href = null, class
     if (href) {
         return (
             <Link href={href}
-                  className={`p-2 px-5 rounded-full   ${className} ${outline ? 'bg-white text-black border border-primary' : 'bg-primary text-white'}`}
+                  className={`p-2 rounded-full   ${className} ${outline ? 'bg-white text-black border border-primary' : 'bg-primary text-white'}`}
                   type={type} onClick={onClick}>
                 {children}
             </Link>
@@ -17,7 +17,7 @@ const Button = ({loading, children, type = 'button', onClick, href = null, class
 
     return (
         <button
-            className={` p-2 px-5 rounded-full flex items-center justify-center gap-3 ${className} ${outline ? 'bg-white text-black border border-primary' : 'bg-primary text-white'}`}
+            className={` p-2 rounded-full hover:bg-primary_hover transition-all duration-300 text-sm flex items-center justify-center gap-3 ${className} ${outline ? 'bg-white hover:bg-primary hover:text-white text-black border border-primary' : 'bg-primary text-white'}`}
             type={type} onClick={onClick}>
             <AnimatePresence>
                 <motion.div>

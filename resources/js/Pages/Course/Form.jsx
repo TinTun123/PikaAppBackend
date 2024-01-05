@@ -18,7 +18,7 @@ const Form = ({ course }) => {
         post(url, {
             preserveScroll: true,
             onSuccess: () => {
-
+                
             }
         });
     }
@@ -45,7 +45,7 @@ const Form = ({ course }) => {
                         <Textarea error={errors.description} rows={4} value={data?.description ?? ''} label={'Description'}
                             onChange={e => setData('description', e.target.value)} />
                         <div className={'flex justify-end'}>
-                            <Button type={'submit'} className={'w-[200px]'} loading={processing}>Save Course</Button>
+                            <Button type={'submit'} loading={processing}>Save Course</Button>
                         </div>
                     </form>
                 </div>

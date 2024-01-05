@@ -14,6 +14,10 @@ class AdminModuleController extends Controller
 {
     public function store(StoreModuleRequest $request)
     {
+        $moduleExist = Module::where('course_id', $request->course_id)->where('number', $request->number)->first();
+        if ($moduleExist) {
+            return back()->withErrors(['number' => 'Module with the same number already exists!']);
+        }
         $attributes = $request->only('title', 'description', 'number', 'course_id');
         Module::create($attributes);
         return back();
@@ -21,7 +25,13 @@ class AdminModuleController extends Controller
 
     public function update(Module $module, UpdateModuleRequest $request)
     {
-        $attributes = $request->only('title', 'description', 'number', 'video', 'course_id');
+        if ($module->number !== $request->number) {
+            $moduleExist = Module::where('number', $request->number)->where('course_id', $module->course_id)->first();
+            if ($moduleExist) {
+                return back()->withErrors(['number' => 'Module with the same number already exists!']);
+            }
+        }
+        $attributes = $request->only('title', 'description', 'number');
         $module->update($attributes);
         return back();
     }

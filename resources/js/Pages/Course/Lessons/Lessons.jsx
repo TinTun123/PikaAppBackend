@@ -3,6 +3,8 @@ import Button from "../../../components/Button.jsx";
 import LessonForm from "./LessonForm.jsx";
 import LessonCard from "./LessonCard.jsx";
 import Paginator from "../../../components/Paginator.jsx";
+import { GoPlus } from "react-icons/go";
+
 
 const Lessons = ({ courseId, lessons, moduleId }) => {
 
@@ -20,10 +22,10 @@ const Lessons = ({ courseId, lessons, moduleId }) => {
     }
 
     return (
-        <div className={'pt-3  min-h-[300px] border border-dashed '}>
-            <LessonForm moduleId={moduleId} latestLessonNumber={lessons?.[lessons?.length - 1]?.number  ?? 0} courseId={courseId} setShowForm={setShowForm} showForm={showForm} lesson={currentLesson} />
-            <div className={'flex justify-end'}>
-                <Button outline onClick={prepareNewForm}>+</Button>
+        <div className={'p-3  min-h-[300px] border border-dashed '}>
+            <LessonForm moduleId={moduleId} latestLessonNumber={lessons?.[lessons?.length - 1]?.number ?? 0} courseId={courseId} setShowForm={setShowForm} showForm={showForm} lesson={currentLesson} />
+            <div className={'flex justify-end p-2 mb-2'}>
+                <Button outline onClick={prepareNewForm}><GoPlus /></Button>
             </div>
             <div className={'grid grid-cols-1 lg:grid-cols-3 gap-3'}>
                 {
@@ -32,8 +34,6 @@ const Lessons = ({ courseId, lessons, moduleId }) => {
                     ))
                 }
             </div>
-            <Paginator links={lessons.links} />
-
         </div>
 
     );

@@ -17,7 +17,7 @@ const Index = ({ categories, audios }) => {
   return (
     <>
       <div>
-        <Button onClick={prepareNewForm} >Create Audio</Button>
+        <Button onClick={prepareNewForm} >Create Podcast</Button>
       </div>
       <Form categories={categories} current={current} show={formOpen} setFormOpen={setFormOpen} />
       <Podcasts prepareForEdit={prepareForEdit} current={current}  podcasts={audios.data} />

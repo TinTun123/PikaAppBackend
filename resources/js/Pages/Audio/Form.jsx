@@ -25,7 +25,6 @@ const Form = ({ show, current, setFormOpen, categories }) => {
 
   useEffect(() => {
     if (current) {
-      console.log(current);
       setData(current);
     } else {
       setData({});

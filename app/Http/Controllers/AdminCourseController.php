@@ -12,7 +12,7 @@ class AdminCourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::paginate(10);
+        $courses = Course::latest()->paginate(10);
         return inertia('Course/Index', [
             'courses' => $courses,
         ]);
@@ -35,6 +35,7 @@ class AdminCourseController extends Controller
 
     public function edit(Course $course)
     {
+
         return inertia('Course/Form', [
             'course' => $course->load(['modules' => function ($query) {
                 $query->with(['videos' => function ($query) {

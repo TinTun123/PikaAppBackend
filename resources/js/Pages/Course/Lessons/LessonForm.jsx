@@ -4,11 +4,10 @@ import Input from "../../../components/Input.jsx";
 import { useForm } from "@inertiajs/react";
 import Button from "../../../components/Button.jsx";
 import Textarea from "../../../components/Textarea.jsx";
-import lessons from "./Lessons.jsx";
 
 const LessonForm = ({ showForm, setShowForm, lesson, latestLessonNumber, courseId, moduleId }) => {
 
-    const { data, setData, errors, post } = useForm(lesson ?? {
+    const { data, setData, errors, post, clearErrors, processing } = useForm(lesson ?? {
         course_id: courseId,
         module_id: moduleId,
         number: latestLessonNumber + 1
@@ -22,7 +21,6 @@ const LessonForm = ({ showForm, setShowForm, lesson, latestLessonNumber, courseI
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(data);
         let url = lesson ? route('lessons.update', lesson.id) : route('lessons.store');
         post(url, {
             preserveScroll: true,
@@ -32,6 +30,14 @@ const LessonForm = ({ showForm, setShowForm, lesson, latestLessonNumber, courseI
         })
     }
 
+    useEffect(() => {
+        if (!showForm) {
+            clearErrors();
+        }
+        if (!lesson) {
+            setData(pre => ({ ...pre, title: '', description: '', number: latestLessonNumber + 1, video: '' }))
+        }
+    }, [showForm])
 
 
     return (
@@ -45,7 +51,7 @@ const LessonForm = ({ showForm, setShowForm, lesson, latestLessonNumber, courseI
                     label={'Number'} error={errors.number} />
                 <Textarea error={errors.description} rows={4} value={data?.description ?? ''} label={'Description'}
                     onChange={e => setData('description', e.target.value)} />
-                <Button type={'submit'}>Submit</Button>
+                <Button loading={processing}  type={'submit'}>Submit</Button>
             </form>
         </Modal>
     );
