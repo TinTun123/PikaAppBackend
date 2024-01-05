@@ -37,7 +37,9 @@ class AdminCourseController extends Controller
     {
         return inertia('Course/Form', [
             'course' => $course->load(['modules' => function ($query) {
-                $query->with('videos');
+                $query->with(['videos' => function ($query) {
+                    return $query->orderBy('number');
+                }])->orderBy('number');
             }])
         ]);
     }

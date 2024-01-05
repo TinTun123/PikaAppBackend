@@ -14,17 +14,18 @@ class CourseController extends Controller
     public function index()
     {
         return response()->json([
-            'courses' => Course::withCount('videos')->latest()->paginate(10),
+            'courses' => Course::withCount('videos', 'modules')->latest()->paginate(10),
         ]);
     }
 
     public function show(Course $course)
     {
         return response()->json([
-            'course' => $course->load(['videos' => function($query){
-                return $query->select('id','title','description','course_id','number');
+            'course' => $course->load(['modules' => function ($query) {
+                return $query->orderBy('number');
+            }, 'modules.videos' => function ($query) {
+                return $query->select('title', 'id','description', 'course_id', 'module_id', 'number')->orderBy('number');
             }]),
         ]);
     }
-
 }
