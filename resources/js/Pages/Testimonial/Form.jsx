@@ -1,12 +1,12 @@
 import { useForm } from "@inertiajs/react";
-import React from 'react'
+import React, { useEffect } from 'react'
 import Modal from "../../components/Modal";
 import Input from "../../components/Input";
 import ImageUploader from "../../components/ImageUploader";
 import Checkbox from "../../components/Checkbox";
 import Button from "../../components/Button";
 
-const Form = ({ course, showForm, setShowForm }) => {
+const Form = ({ course, showForm, setShowForm, selectedTestimonial, type }) => {
 
   const { data, setData, errors, processing, post } = useForm({
     course_id: course.id,
@@ -17,12 +17,18 @@ const Form = ({ course, showForm, setShowForm }) => {
     setData((prev) => ({ ...prev, file }))
   }
 
+
+  useEffect(() => {
+    if (selectedTestimonial.id) {
+      setData(selectedTestimonial);
+    }
+  }, [showForm, selectedTestimonial]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    let url = route('testimonial.store');
-    console.log(data);
-    post(url,{
-
+    let url = type === 'create' ? route('testimonial.store') : route('testimonial.update', selectedTestimonial.id);
+    post(url, {
+      preserveScroll: true,
     });
   };
 
@@ -43,13 +49,13 @@ const Form = ({ course, showForm, setShowForm }) => {
           </div>
           {
             data.type === 'video' &&
-            <Input label={'Vimeo ID'} onChange={e => setData('file', e.target.value)} />
+            <Input value={data?.file ?? ''} label={'Vimeo ID'} onChange={e => setData('file', e.target.value)} />
           }
           {
             data.type === 'photo' &&
             <div className="flex flex-col gap-2">
               <p className={'font-medium'}>Photo</p>
-              <ImageUploader handleUpload={handleUpload} data={data} setData={setData} error={errors.image} />
+              <ImageUploader handleUpload={handleUpload} data={{ image: data?.file }} setData={setData} error={errors.image} />
             </div>
           }
 

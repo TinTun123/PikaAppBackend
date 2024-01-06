@@ -25,30 +25,35 @@ const Index = ({ testimonials, course }) => {
   const [showForm, setShowForm] = useState(false);
   const { post, data, setData } = useForm({});
   const [table, setTable] = useState(false);
-
+  const [selectedTestimonial, setSelectedTestimonial] = useState({});
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [type, setType] = useState('create');
 
   const handleAddNew = () => {
     setShowForm(true);
   }
 
   const togglePublish = (id) => {
-    console.log(id);
     post(route('testimonial.toggle.publish', id), {
       preserveScroll: true,
     });
   }
 
-  const handleDelete = () => {
-
+  const handleEdit = (item) => {
+    setSelectedTestimonial(item);
+    setShowForm(true);
+    setType('edit');
   }
 
-  const openDeleteModal = () => {
-    
+  const openDeleteModal = (item) => {
+    setSelectedTestimonial(item);
+    setDeleteModalOpen(true);
+    setType('create');
   }
 
   return (
     <>
-      <Form showForm={showForm} course={course} setShowForm={setShowForm} />
+      <Form type={type} showForm={showForm} course={course} selectedTestimonial={selectedTestimonial} setShowForm={setShowForm} />
       <div className="flex justify-between ">
         <Button onClick={() => handleAddNew()} >Create Testimonial</Button>
         <button onClick={() => setTable(!table)} className="p-2 bg-gray-200 text-xl"><BsGridFill /></button>
@@ -81,10 +86,10 @@ const Index = ({ testimonials, course }) => {
                           <BsThreeDotsVertical />
                         </div>
                       )}>
-                        <Dropdown.Item onClick={() => handleEdit(lesson)}>Edit</Dropdown.Item>
-                        <Dropdown.Item onClick={() => openDeleteModal(lesson)}>Delete</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleEdit(item)}>Edit</Dropdown.Item>
+                        <Dropdown.Item onClick={() => openDeleteModal(item)}>Delete</Dropdown.Item>
                       </Dropdown>
-                      </TableData>
+                    </TableData>
                   </TableRow>
                 ))
               }
@@ -106,7 +111,10 @@ const Index = ({ testimonials, course }) => {
                           className="absolute top-0 left-0 w-full h-full"></iframe>
                       </div>
                     }
-                    {/* <img src={item.file} alt="" /> */}
+                    {
+                      item.type === 'photo' &&
+                      <img  className="h-[190px] w-full object-cover" src={item.file} alt="" />
+                    }
 
                     <div className="flex justify-center">
                       <Button className={'w-[120px] px-2'} onClick={() => togglePublish(item.id)}>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Traits\ImageDeleter;
 use Illuminate\Http\Request;
 
 class AdminUserController extends Controller
