@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminLessonController;
 use App\Http\Controllers\AdminModuleController;
 use App\Http\Controllers\AdminPopularPodcastController;
 use App\Http\Controllers\AdminRecommendedPodcastController;
+use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminUserController;
@@ -64,7 +65,7 @@ Route::controller(AdminTestimonialController::class)->prefix('/testimonial')->na
     Route::get('/{course:id}', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/update/{testimonial:id}', 'update')->name('update');
-    Route::delete('/destroy/{testimonial:id},','destroy')->name('destroy');
+    Route::delete('/destroy/{testimonial:id},', 'destroy')->name('destroy');
     Route::post('/toggle-publish/{testimonial:id}', 'togglePublish')->name('toggle.publish');
 });
 
@@ -92,7 +93,8 @@ Route::controller(AdminRecommendedPodcastController::class)->prefix('/recommende
     Route::get('/', 'index')->name('index');
 });
 
-Route::controller(AdminVersionController::class)->prefix('version')->name('version.')->group(function () {
+Route::controller(AdminSettingController::class)->prefix('settings')->name('setting.')->group(function () {
     Route::get('/', 'index')->name('index');
-    Route::post('/', 'update')->name('update');
+    Route::get('#version','getVersion')->name('version');
+    Route::get('#terms','getTerm')->name('term');
 });

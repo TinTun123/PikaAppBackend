@@ -48,9 +48,9 @@ let links = [
         can: true
     },
     {
-        title: 'Version',
-        link: 'version.index',
-        icon: 'GoVersions',
+        title: 'Settings',
+        link: 'setting.index',
+        icon: 'FiSettings',
         can: true
     }
 ]

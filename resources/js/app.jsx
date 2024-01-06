@@ -10,7 +10,6 @@ createInertiaApp({
         let page = await resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx'));
         page = page.default;
 
-        console.log(name);
         if (page.layout === undefined && name !== 'Login') {
             page.layout = AdminLayout;
         }

@@ -71,7 +71,6 @@ const AdminSideBar = ({children}) => {
             </div>
 
             <main className="primary-content flex-1 p-4 pb-8 mt-[69px] overflow-hidden md:ml-[259px] md:mt-0">
-
                 {children}
             </main>
 

@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from "../../components/Button.jsx";
 import CourseCard from "./CourseCard.jsx";
 
-const Index = ({courses}) => {
+const Index = ({ courses }) => {
 
     return (
         <>
@@ -11,7 +11,7 @@ const Index = ({courses}) => {
             </div>
             <div className="mt-4">
                 {
-                    courses.data.map(item=> (
+                    courses.data.map(item => (
                         <CourseCard key={item.id} course={item} />
                     ))
                 }

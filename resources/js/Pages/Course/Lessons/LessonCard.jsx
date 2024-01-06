@@ -32,11 +32,10 @@ const LessonCard = ({ lesson, handleEdit }) => {
             <div className={'group border p-3'}>
                 {/*800946029*/}
                 {/*894419244*/}
-                <div className="relative p-32">
+                <div className="relative aspect-video w-full ">
                     <iframe
                         src={`https://player.vimeo.com/video/${lesson.video}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-                        frameBorder="0" allow="autoplay; fullscreen; picture-in-picture"
-                        className="absolute top-0 left-0 w-full h-full"></iframe>
+                        allow="autoplay; fullscreen; picture-in-picture" width={426} height={240} frameborder="0" data-ready='true' style={{ width: '100%', height: '100%' }}></iframe>
                 </div>
                 <div className={'flex mt-3'}>
                     <div className={'w-full'}>

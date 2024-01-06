@@ -108,14 +108,14 @@ const Index = ({ testimonials, course }) => {
             <div className="grid grid-cols-1 mt-3 lg:grid-cols-3 gap-3 ">
               {
                 testimonials.map(item => (
-                  <div className="border border-dashed border-gray-300 flex flex-col justify-around h-[340px] p-3">
+                  <div className="border border-dashed border-gray-300 flex flex-col gap-3 justify-between max-h-[330px] p-3">
                     {
                       item.type === 'video' &&
-                      <div className="relative p-24">
+                      <div className="relative aspect-video ">
                         <iframe
                           src={`https://player.vimeo.com/video/${item.file}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
                           frameBorder="0" allow="autoplay; fullscreen; picture-in-picture"
-                          className="absolute top-0 left-0 w-full h-full"></iframe>
+                          className="w-full h-full"></iframe>
                       </div>
                     }
                     {
