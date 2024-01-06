@@ -9,6 +9,7 @@ import { AnimatePresence, LayoutGroup } from "framer-motion";
 import { motion } from 'framer-motion';
 import { BsGridFill, BsThreeDotsVertical } from "react-icons/bs";
 import { Dropdown } from "flowbite-react";
+import ConfirmModal from "../../components/ConfirmModal";
 
 
 
@@ -23,7 +24,7 @@ const columns = [
 const Index = ({ testimonials, course }) => {
 
   const [showForm, setShowForm] = useState(false);
-  const { post, data, setData } = useForm({});
+  const { post, delete: destroy } = useForm({});
   const [table, setTable] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState({});
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -31,6 +32,7 @@ const Index = ({ testimonials, course }) => {
 
   const handleAddNew = () => {
     setShowForm(true);
+    setType('create');
   }
 
   const togglePublish = (id) => {
@@ -48,11 +50,17 @@ const Index = ({ testimonials, course }) => {
   const openDeleteModal = (item) => {
     setSelectedTestimonial(item);
     setDeleteModalOpen(true);
-    setType('create');
+  }
+
+  const deleteTestimonial = () => {
+    destroy(route('testimonial.destroy', selectedTestimonial.id), {
+      onSuccess: () => setDeleteModalOpen(false),
+    });
   }
 
   return (
     <>
+      <ConfirmModal onCancel={() => setDeleteModalOpen(false)} onConfirm={deleteTestimonial} show={deleteModalOpen} />
       <Form type={type} showForm={showForm} course={course} selectedTestimonial={selectedTestimonial} setShowForm={setShowForm} />
       <div className="flex justify-between ">
         <Button onClick={() => handleAddNew()} >Create Testimonial</Button>
@@ -95,7 +103,6 @@ const Index = ({ testimonials, course }) => {
               }
             </Table>
           }
-
           {
             !table &&
             <div className="grid grid-cols-1 mt-3 lg:grid-cols-3 gap-3 ">
@@ -113,13 +120,21 @@ const Index = ({ testimonials, course }) => {
                     }
                     {
                       item.type === 'photo' &&
-                      <img  className="h-[190px] w-full object-cover" src={item.file} alt="" />
+                      <img className="h-[190px] w-full object-cover" src={item.file} alt="" />
                     }
 
-                    <div className="flex justify-center">
+                    <div className="flex justify-between items-center">
                       <Button className={'w-[120px] px-2'} onClick={() => togglePublish(item.id)}>
                         {item.published ? 'Unpublished' : 'Publish'}
                       </Button>
+                      <Dropdown className={'bg-white'} label='' renderTrigger={() => (
+                        <div className={'cursor-pointer'}>
+                          <BsThreeDotsVertical />
+                        </div>
+                      )}>
+                        <Dropdown.Item onClick={() => handleEdit(item)}>Edit</Dropdown.Item>
+                        <Dropdown.Item onClick={() => openDeleteModal(item)}>Delete</Dropdown.Item>
+                      </Dropdown>
                     </div>
                   </div>
                 ))

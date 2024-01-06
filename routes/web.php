@@ -64,7 +64,7 @@ Route::controller(AdminTestimonialController::class)->prefix('/testimonial')->na
     Route::get('/{course:id}', 'index')->name('index');
     Route::post('/store', 'store')->name('store');
     Route::post('/update/{testimonial:id}', 'update')->name('update');
-
+    Route::delete('/destroy/{testimonial:id},','destroy')->name('destroy');
     Route::post('/toggle-publish/{testimonial:id}', 'togglePublish')->name('toggle.publish');
 });
 

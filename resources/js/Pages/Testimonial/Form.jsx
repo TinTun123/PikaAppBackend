@@ -29,6 +29,7 @@ const Form = ({ course, showForm, setShowForm, selectedTestimonial, type }) => {
     let url = type === 'create' ? route('testimonial.store') : route('testimonial.update', selectedTestimonial.id);
     post(url, {
       preserveScroll: true,
+      onSuccess: () => setShowForm(false)
     });
   };
 
@@ -42,7 +43,7 @@ const Form = ({ course, showForm, setShowForm, selectedTestimonial, type }) => {
             <div className="flex items-center gap-3">
               {
                 ['video', 'photo'].map(type => (
-                  <div key={type} onClick={() => setData('type', type)} className={`w-full cursor-pointer border transition-all text-center p-2 ${type === data.type ? 'border border-primary' : ''}`}> {type} </div>
+                  <div key={type} onClick={() => setData(pre => ({ ...pre, type, file: null }))} className={`w-full cursor-pointer border transition-all text-center p-2 ${type === data.type ? 'border border-primary' : ''}`}> {type} </div>
                 ))
               }
             </div>

@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -24,6 +25,10 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof AuthenticationException) {
             return response()->json(['message' => 'Authentication failed'], 401);
+        }
+
+        if ($exception instanceof ModelNotFoundException && str_contains($request->url(), 'api')) {
+            return response()->json(['message' => 'No resource found'], 404);
         }
 
         return parent::render($request, $exception);

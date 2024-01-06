@@ -21,11 +21,15 @@ class CourseController extends Controller
     public function show(Course $course)
     {
         return response()->json([
-            'course' => $course->load(['modules' => function ($query) {
-                return $query->orderBy('number');
-            }, 'modules.videos' => function ($query) {
-                return $query->select('title', 'id','description', 'course_id', 'module_id', 'number')->orderBy('number');
-            }]),
+            'course' => $course->load([
+                'modules' => function ($query) {
+                    return $query->orderBy('number');
+                }, 'modules.videos' => function ($query) {
+                    return $query->select('title', 'id', 'description', 'course_id', 'module_id', 'number')->orderBy('number');
+                }, 'testimonials' => function ($query) {
+                    return $query->where('published', true);
+                }
+            ]),
         ]);
     }
 }
