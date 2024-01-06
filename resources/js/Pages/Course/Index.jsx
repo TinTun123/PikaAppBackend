@@ -9,7 +9,7 @@ const Index = ({courses}) => {
             <div>
                 <Button href={route('courses.create')} >Create Course</Button>
             </div>
-            <div>
+            <div className="mt-4">
                 {
                     courses.data.map(item=> (
                         <CourseCard key={item.id} course={item} />

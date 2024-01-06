@@ -5,7 +5,7 @@ import { formatPrice } from '../../Global/Methods';
 
 const CourseCard = ({course,handleDeleteModal}) => {
     return (
-        <div className={' w-full p-4 shadow-lg hover:shadow-2xl flex flex-col sm:flex-row gap-5'}>
+        <div className={' w-full p-4 flex border border-dashed border-primary flex-col sm:flex-row gap-5'}>
             <img className={'h-[200px] w-[400px] object-cover '} src={course.image} alt="" />
                 <div className={'flex flex-col gap-5 w-full justify-between'}>
                     <div>
