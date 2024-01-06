@@ -18,7 +18,7 @@ const Form = ({ course }) => {
         post(url, {
             preserveScroll: true,
             onSuccess: () => {
-                
+
             }
         });
     }
@@ -50,7 +50,10 @@ const Form = ({ course }) => {
                     </form>
                 </div>
 
-                <Modules course={course} />
+                {
+                    course &&
+                    <Modules course={course} />
+                }
             </div>
         </>
     );

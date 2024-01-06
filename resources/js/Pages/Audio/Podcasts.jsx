@@ -28,7 +28,7 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
   ]
 
   const { post } = useForm({});
-  const togglePopular = (id, popular) => {
+  const togglePopular = (id) => {
     post(route('audio.togglePopular', id), {
       onSuccess: () => {
 
@@ -36,7 +36,7 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
     });
   }
 
-  const toggleRecommended = (id, recommended) => {
+  const toggleRecommended = (id) => {
     post(route('audio.toggleRecommended', id), {
       onSuccess: () => {
 
@@ -85,12 +85,12 @@ const Podcasts = ({ podcasts, prepareForEdit }) => {
                 {item.category.name}
               </TableData>
               <TableData>
-                <Button onClick={() => togglePopular(item.id, item.popular)}>
+                <Button className={'w-[120px] px-2'} onClick={() => togglePopular(item.id)}>
                   {item.popular ? 'Unpopular' : 'Make Popular'}
                 </Button>
               </TableData>
               <TableData>
-                <Button onClick={() => toggleRecommended(item.id, item.recommended)}>
+                <Button className={'w-[100px] px-2'} onClick={() => toggleRecommended(item.id)}>
                   {item.recommended ? 'Remove' : 'Add'}
                 </Button>
               </TableData>

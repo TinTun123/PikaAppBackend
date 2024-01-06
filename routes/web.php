@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminModuleController;
 use App\Http\Controllers\AdminPopularPodcastController;
 use App\Http\Controllers\AdminRecommendedPodcastController;
 use App\Http\Controllers\AdminSliderController;
+use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminVersionController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,15 @@ Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lesso
     Route::post('/update/{video:id}', 'update')->name('update');
     Route::delete('/destroy/{video:id}', 'destroy')->name('destroy');
 });
+
+Route::controller(AdminTestimonialController::class)->prefix('/testimonial')->name('testimonial.')->group(function () {
+    Route::get('/{course:id}', 'index')->name('index');
+    Route::post('/store', 'store')->name('store');
+    Route::post('/update/{testimonial:id}', 'update')->name('update');
+
+    Route::post('/toggle-publish/{testimonial:id}', 'togglePublish')->name('toggle.publish');
+});
+
 
 Route::controller(AdminCategoryController::class)->prefix('/category')->name('category.')->group(function () {
     Route::get('/', 'index')->name('index');
