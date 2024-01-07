@@ -24,8 +24,6 @@ const links = [
 
 const Index = ({ version }) => {
 
-  const { post, data, setData, processing } = useForm({ version });
-
   // const handleSubmit = (e) => {
   //   e.preventDefault();
   //   post(route('version.update'),{
@@ -53,7 +51,8 @@ const Index = ({ version }) => {
           ))
         }
       </div>
-      <div className="col-span-2">
+      <div className="col-span-2 bg-white p-5">
+        <h3 className="text-center mb-5 font-semibold">Version</h3>
         {
           checkActive('setting.version') &&
           <Version />
