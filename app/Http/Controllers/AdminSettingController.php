@@ -27,14 +27,14 @@ class AdminSettingController extends Controller
 
     public function updateVersion()
     {
-        $version = Setting::find(1);
+        $version = Setting::first();
         $version->update(['version' => request('version')]);
         return back();
     }
 
     public function updateTerms()
     {
-        $terms = Setting::find(1);
+        $terms = Setting::first();
         $terms->update(['terms' => request('terms')]);
         return back();
     }

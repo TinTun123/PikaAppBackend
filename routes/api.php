@@ -6,6 +6,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FavoritePodcastController;
 use App\Http\Controllers\PopularPodcastController;
 use App\Http\Controllers\RecommendedPodcastController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\VersionController;
@@ -45,7 +46,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('categories', [CategoryController::class, 'index']);
 
-    Route::get('/version', [VersionController::class, 'index']);
+    Route::get('/version', [SettingController::class, 'getVersion']);
+    Route::get('/terms', [SettingController::class, 'getTerms']);
 
     Route::get('popular', [PopularPodcastController::class, 'index']);
 
