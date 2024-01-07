@@ -94,7 +94,10 @@ Route::controller(AdminRecommendedPodcastController::class)->prefix('/recommende
 });
 
 Route::controller(AdminSettingController::class)->prefix('settings')->name('setting.')->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('#version','getVersion')->name('version');
-    Route::get('#terms','getTerm')->name('term');
+    Route::get('/version', 'getVersion')->name('version');
+    Route::get('/terms', 'getTerm')->name('term');
+
+    Route::post('/version/update', 'updateVersion')->name('version.update');
+    Route::post('/terms/update', 'updateTerms')->name('terms.update');
+    
 });

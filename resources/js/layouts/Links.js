@@ -49,7 +49,7 @@ let links = [
     },
     {
         title: 'Settings',
-        link: 'setting.index',
+        link: 'setting.version',
         icon: 'FiSettings',
         can: true
     }

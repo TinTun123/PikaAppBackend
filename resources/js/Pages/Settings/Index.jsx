@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import { Link, useForm } from '@inertiajs/react';
@@ -22,7 +22,9 @@ const links = [
   },
 ]
 
-const Index = ({ version }) => {
+const Index = ({ version, terms }) => {
+
+  const [currentTab, setCurrentTab] = useState('');
 
   // const handleSubmit = (e) => {
   //   e.preventDefault();
@@ -32,6 +34,13 @@ const Index = ({ version }) => {
   //     }
   //   });
   // }
+  useEffect(() => {
+    links.forEach(link => {
+      if (checkActive(link.link)) {
+        setCurrentTab(link.title);
+      }
+    })
+  }, []);
   const checkActive = (routeName) => {
     return window.location.href === route(routeName);
   }
@@ -52,15 +61,15 @@ const Index = ({ version }) => {
         }
       </div>
       <div className="col-span-2 bg-white p-5">
-        <h3 className="text-center mb-5 font-semibold">Version</h3>
+        <h3 className="text-center text-lg mb-5 font-semibold">{currentTab}</h3>
         {
           checkActive('setting.version') &&
-          <Version />
+          <Version version={version} />
         }
 
         {
           checkActive('setting.term') &&
-          <TermsAndConditions />
+          <TermsAndConditions terms={terms} />
         }
       </div>
     </div>

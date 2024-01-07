@@ -2,24 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\Version;
 use Illuminate\Http\Request;
 
 class AdminSettingController extends Controller
 {
-    public function index()
-    {
-        return inertia('Settings/Index');
-    }
-
 
     public function getVersion()
     {
-        return inertia('Settings/Index');
+        $version = Setting::select('version', 'id')->first();
+        return inertia('Settings/Index', [
+            'version' => $version
+        ]);
     }
 
     public function getTerm()
     {
-        return inertia('Settings/Index');
+        $terms = Setting::select('terms', 'id')->first();
+        return inertia('Settings/Index', [
+            'terms' => $terms
+        ]);
+    }
+
+    public function updateVersion()
+    {
+        $version = Setting::find(1);
+        $version->update(['version' => request('version')]);
+        return back();
+    }
+
+    public function updateTerms()
+    {
+        $terms = Setting::find(1);
+        $terms->update(['terms' => request('terms')]);
+        return back();
     }
 }

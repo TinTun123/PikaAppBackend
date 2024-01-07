@@ -1,0 +1,1 @@
+import{_ as t}from"./app-f4743089.js";const r=o=>{t.success(o,{position:"bottom-center",duration:5e3,style:{backgroundColor:"#00BA7C",color:"white"},icon:""})},c=o=>(+o).toLocaleString();export{c as f,r as s};
