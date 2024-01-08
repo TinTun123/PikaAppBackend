@@ -38,7 +38,9 @@ class UserAuthController extends Controller
         ]);
 
         if (!auth()->attempt($request->only('email', 'password'))) {
-            throw new AuthenticationException();
+            return response()->json([
+                'message' => 'Sorry, something is wrong!'
+            ], 401);
         }
 
         $token = $this->generateToken();
@@ -63,7 +65,6 @@ class UserAuthController extends Controller
             'success' => true,
             'message' => 'check your mail!'
         ]);
-
     }
 
     public function resetPassword(Request $request)
