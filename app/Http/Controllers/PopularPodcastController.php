@@ -10,7 +10,7 @@ class PopularPodcastController extends Controller
     {
         $podcasts = Podcast::with(['category' => function($query){
             return $query->select('name','id');
-        }])->select('title','image','type','category_id','time','popular','price')
+        }])->select('id','title','image','type','category_id','time','popular','price')
             ->where('popular',true);
 
         if(request('limit')){

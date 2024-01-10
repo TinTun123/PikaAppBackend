@@ -13,9 +13,9 @@ class PodcastController extends Controller
     {
         $podcasts = Podcast::with(['category' => function ($query) {
             return $query->select('name', 'id');
-        }])->select('title', 'image','type', 'category_id', 'time', 'price')
-            ->when(request('type'),function($query){
-                return $query->where('type',request('type'));
+        }])->select('id', 'title', 'image', 'type', 'category_id', 'time', 'price')
+            ->when(request('type'), function ($query) {
+                return $query->where('type', request('type'));
             })
             ->paginate(10);
         return response()->json([
