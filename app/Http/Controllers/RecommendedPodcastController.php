@@ -11,14 +11,14 @@ class RecommendedPodcastController extends Controller
     {
         $podcasts = Podcast::with(['category' => function ($query) {
             return $query->select('name', 'id');
-        }])->select('id','title', 'image', 'category_id', 'type', 'recommended' ,'time', 'price')
+        }])->select('id', 'title', 'image', 'category_id', 'type', 'recommended', 'time', 'price')
             ->where('recommended', true);
 
-            if (request('limit')) {
-                $podcasts = $podcasts->take(intval(request('limit')))->get();
-            } else {
-                $podcasts = $podcasts->paginate(10);
-            }
+        if (request('limit')) {
+            $podcasts = $podcasts->take(intval(request('limit')))->get();
+        } else {
+            $podcasts = $podcasts->paginate(10);
+        }
 
 
         return response()->json([

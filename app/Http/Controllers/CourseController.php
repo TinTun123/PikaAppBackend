@@ -13,13 +13,19 @@ class CourseController extends Controller
      */
     public function index()
     {
+        $courses = Course::with('category')
+            ->withCount('videos', 'modules')
+            ->filterByPopular()
+            ->filterByRecommended()
+            ->latest();
+
+        if (request('limit')) {
+            $courses = $courses->take(intval(request('limit')))->get();
+        } else {
+            $courses = $courses->paginate(10);
+        }
         return response()->json([
-            'courses' => Course::with('category')
-                ->withCount('videos', 'modules')
-                ->filterByPopular()
-                ->filterByRecommended()
-                ->latest()
-                ->paginate(10)
+            'courses' => $courses,
         ]);
     }
 
