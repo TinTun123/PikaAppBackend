@@ -14,14 +14,14 @@ class CategoryController extends Controller
     public function getCourseCategory()
     {
         return response()->json([
-            'categories' => Category::where('type', 'course')->select('id','name')->take(10),
+            'categories' => Category::where('type', 'course')->select('id', 'name')->take(10)->get(),
         ]);
     }
 
     public function getPodcastCategory()
     {
         return response()->json([
-            'categories' => Category::where('type', 'podcast')->select('id','name')->take(10),
+            'categories' => Category::where('type', 'podcast')->select('id', 'name')->take(10)->get(),
         ]);
     }
 }
