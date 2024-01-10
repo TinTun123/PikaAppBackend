@@ -44,7 +44,7 @@ const Home = () => {
     const page = usePage();
     const [url,setUrl] = useState(null);
     const hitTheServer = async () => {
-        let res = await axios.post('api/audio/upload', { csrf_token: page.props.csrf_token });
+        let res = await axios.post('api/podcast/upload', { csrf_token: page.props.csrf_token });
         console.log(res);
     }
 
@@ -61,7 +61,7 @@ const Home = () => {
             <button onClick={hitTheServer}>Hit the server</button>
 
             <audio controls>
-                <source src={url} type='audio/mp3'> 
+                <source src={url} type='audio/mp3'>
                 </source>
             </audio>
         </div>

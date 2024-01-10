@@ -27,6 +27,7 @@ class StoreCourseRequest extends FormRequest
             'price' => 'required',
             'instructor' => 'required',
             'image' => 'required',
+            'category_id' => 'required',
         ];
     }
 }

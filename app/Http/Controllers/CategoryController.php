@@ -11,10 +11,17 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function getCourseCategory()
     {
         return response()->json([
-            'categories' => Category::all(),
+            'categories' => Category::where('type', 'course')->select('id','name')->take(10),
+        ]);
+    }
+
+    public function getPodcastCategory()
+    {
+        return response()->json([
+            'categories' => Category::where('type', 'podcast')->select('id','name')->take(10),
         ]);
     }
 }

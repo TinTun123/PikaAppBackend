@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Audio;
-use App\Models\PopularPodcast;
+use App\Models\Podcast;
 
 class PopularPodcastController extends Controller
 {
     public function index()
     {
-        $podcasts = Audio::with(['category' => function($query){
+        $podcasts = Podcast::with(['category' => function($query){
             return $query->select('name','id');
-        }])->select('title','image','category_id','time','price')->where('popular',true)->get();
+        }])->select('title','image','type','category_id','time','popular','price')
+            ->where('popular',true);
+
+        if(request('limit')){
+            $podcasts = $podcasts->take(intval(request('limit')))->get();
+        }else{
+            $podcasts = $podcasts->paginate(10);
+        }
+
         return response()->json([
             'podcasts' => $podcasts
         ]);

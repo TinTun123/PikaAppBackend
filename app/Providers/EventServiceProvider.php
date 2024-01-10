@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Audio;
-use App\Observers\AudioObserver;
+use App\Models\Podcast;
+use App\Observers\PodcastObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,7 +27,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Audio::observe(AudioObserver::class);
+        Podcast::observe(PodcastObserver::class);
     }
 
     /**

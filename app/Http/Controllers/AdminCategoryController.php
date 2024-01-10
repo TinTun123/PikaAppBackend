@@ -9,17 +9,25 @@ use Illuminate\Http\Request;
 
 class AdminCategoryController extends Controller
 {
-    public function index()
+    public function getPodcastCategory()
     {
-        $categories = Category::all();
-        return inertia('Category/Index',[
+        $categories = Category::where('type', 'podcast')->get();
+        return inertia('Category/Index', [
+            'categories' => $categories,
+        ]);
+    }
+
+    public function getCourseCategory()
+    {
+        $categories = Category::where('type', 'course')->get();
+        return inertia('Category/Index', [
             'categories' => $categories,
         ]);
     }
 
     public function store(StoreCategoryRequest $request)
     {
-        $attributes = $request->only('name');
+        $attributes = $request->only('name', 'type');
         Category::create($attributes);
         return back();
     }

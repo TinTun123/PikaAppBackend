@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Controllers\AdminAudioController;
+use App\Http\Controllers\AdminPodcastController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FavoritePodcastController;
+use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\PopularPodcastController;
 use App\Http\Controllers\RecommendedPodcastController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
-use App\Http\Controllers\VersionController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -44,21 +44,23 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/lessons/{video:id}', [VideoController::class, 'show']);
 
-    Route::get('categories', [CategoryController::class, 'index']);
+    Route::get('categories/course', [CategoryController::class, 'getCourseCategory']);
+    Route::get('categories/podcast', [CategoryController::class, 'getPodcastCategory']);
 
     Route::get('/version', [SettingController::class, 'getVersion']);
     Route::get('/terms', [SettingController::class, 'getTerms']);
 
-    Route::get('popular', [PopularPodcastController::class, 'index']);
+    Route::get('/podcasts',[PodcastController::class,'index']);
+    Route::get('/podcasts/popular', [PopularPodcastController::class, 'index']);
+    Route::get('/podcasts/recommended', [RecommendedPodcastController::class, 'index']);
 
-    Route::get('recommended', [RecommendedPodcastController::class, 'index']);
 
     Route::controller(FavoritePodcastController::class)->prefix('favorite')->group(function () {
         Route::get('/', 'index');
-        Route::post('/{audio:id}', 'toggleFavorite');
+        Route::post('/{podcast:id}', 'toggleFavorite');
     });
 
 });
 
-Route::post('/audio/upload', [AdminAudioController::class, 'uploadPodcast']);
-Route::post('/audio/remove', [AdminAudioController::class, 'removePodcast']);
+Route::post('/podcast/upload', [AdminPodcastController::class, 'uploadPodcast']);
+Route::post('/podcast/remove', [AdminPodcastController::class, 'removePodcast']);

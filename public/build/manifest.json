@@ -3,341 +3,335 @@
     "file": "assets/ImageUploader-1d587128.css",
     "src": "ImageUploader.css"
   },
-  "_AudioUploader-9fce9c08.js": {
-    "file": "assets/AudioUploader-9fce9c08.js",
+  "_AudioUploader-666a65ce.js": {
+    "file": "assets/AudioUploader-666a65ce.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Button-5d0bd51e.js": {
-    "file": "assets/Button-5d0bd51e.js",
+  "_Button-b247fbc3.js": {
+    "file": "assets/Button-b247fbc3.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_ConfirmModal-817ab9a2.js": {
-    "file": "assets/ConfirmModal-817ab9a2.js",
+  "_ConfirmModal-75f9a726.js": {
+    "file": "assets/ConfirmModal-75f9a726.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Button-5d0bd51e.js"
+      "_Modal-9376f476.js",
+      "_Button-b247fbc3.js"
     ]
   },
-  "_ImageUploader-1c0c6c0d.js": {
+  "_CustomSelect-11f5012a.js": {
+    "file": "assets/CustomSelect-11f5012a.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_ImageUploader-b979c7fb.js": {
     "css": [
       "assets/ImageUploader-1d587128.css"
     ],
-    "file": "assets/ImageUploader-1c0c6c0d.js",
+    "file": "assets/ImageUploader-b979c7fb.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Input-76a8ec44.js": {
-    "file": "assets/Input-76a8ec44.js",
+  "_Input-8e9be8be.js": {
+    "file": "assets/Input-8e9be8be.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Methods-7f3b15c6.js": {
-    "file": "assets/Methods-7f3b15c6.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_Modal-0d004a72.js": {
-    "file": "assets/Modal-0d004a72.js",
+  "_Modal-9376f476.js": {
+    "file": "assets/Modal-9376f476.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js"
+      "_Button-b247fbc3.js"
     ]
   },
-  "_TableRow-e8dd088d.js": {
-    "file": "assets/TableRow-e8dd088d.js",
+  "_TableData-72ed0c78.js": {
+    "file": "assets/TableData-72ed0c78.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Textarea-f90a160a.js": {
-    "file": "assets/Textarea-f90a160a.js",
+  "_Textarea-045079ae.js": {
+    "file": "assets/Textarea-045079ae.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Tooltip-8f55ef20.js": {
-    "file": "assets/Tooltip-8f55ef20.js",
+  "_Tooltip-0632bf70.js": {
+    "file": "assets/Tooltip-0632bf70.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index.esm-25460143.js": {
-    "file": "assets/index.esm-25460143.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_index.esm-edd1bfa1.js": {
-    "file": "assets/index.esm-edd1bfa1.js",
+  "_index.esm-c0c7cce1.js": {
+    "file": "assets/index.esm-c0c7cce1.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-4e52614c.css",
+    "file": "assets/app-57e088f7.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
-  "resources/js/Pages/Audio/Form.jsx": {
-    "file": "assets/Form-586e0660.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Button-5d0bd51e.js",
-      "_Textarea-f90a160a.js",
-      "_ImageUploader-1c0c6c0d.js",
-      "_AudioUploader-9fce9c08.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/Pages/Audio/Form.jsx"
-  },
-  "resources/js/Pages/Audio/Index.jsx": {
-    "file": "assets/Index-84b3bf6a.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
-      "resources/js/Pages/Audio/Form.jsx",
-      "_Tooltip-8f55ef20.js",
-      "resources/js/Pages/Audio/Podcasts.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
-      "_ImageUploader-1c0c6c0d.js",
-      "_AudioUploader-9fce9c08.js",
-      "_TableRow-e8dd088d.js",
-      "_ConfirmModal-817ab9a2.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/Pages/Audio/Index.jsx"
-  },
-  "resources/js/Pages/Audio/Podcasts.jsx": {
-    "file": "assets/Podcasts-8da74dc2.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_TableRow-e8dd088d.js",
-      "_Button-5d0bd51e.js",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Modal-0d004a72.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/Pages/Audio/Podcasts.jsx"
-  },
   "resources/js/Pages/Category/Form.jsx": {
-    "file": "assets/Form-4376dc27.js",
+    "file": "assets/Form-679c2417.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Button-5d0bd51e.js"
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Category/Form.jsx"
   },
   "resources/js/Pages/Category/Index.jsx": {
-    "file": "assets/Index-234baa15.js",
+    "file": "assets/Index-fd489a61.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Category/Form.jsx",
-      "_TableRow-e8dd088d.js",
-      "_Tooltip-8f55ef20.js",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js"
+      "_TableData-72ed0c78.js",
+      "_Tooltip-0632bf70.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Category/Index.jsx"
   },
   "resources/js/Pages/Course/CourseCard.jsx": {
-    "file": "assets/CourseCard-d7adebb6.js",
+    "file": "assets/CourseCard-7857b461.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-25460143.js",
-      "_Methods-7f3b15c6.js"
+      "_Tooltip-0632bf70.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/CourseCard.jsx"
   },
   "resources/js/Pages/Course/Form.jsx": {
-    "file": "assets/Form-f22a68f4.js",
+    "file": "assets/Form-dbcfc189.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ImageUploader-1c0c6c0d.js",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
-      "_Button-5d0bd51e.js",
+      "_ImageUploader-b979c7fb.js",
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Course/Module/Modules.jsx",
+      "_CustomSelect-11f5012a.js",
       "resources/js/Pages/Course/Module/Module.jsx",
       "resources/js/Pages/Course/Lessons/Lessons.jsx",
       "resources/js/Pages/Course/Lessons/LessonForm.jsx",
-      "_Modal-0d004a72.js",
+      "_Modal-9376f476.js",
       "resources/js/Pages/Course/Lessons/LessonCard.jsx",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_index.esm-edd1bfa1.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_index.esm-c0c7cce1.js",
       "resources/js/Pages/Course/Module/ModuleForm.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Form.jsx"
   },
   "resources/js/Pages/Course/Index.jsx": {
-    "file": "assets/Index-a4495215.js",
+    "file": "assets/Index-5e4a5a1a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Course/CourseCard.jsx",
-      "_index.esm-25460143.js",
-      "_Methods-7f3b15c6.js"
+      "_Tooltip-0632bf70.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Index.jsx"
   },
   "resources/js/Pages/Course/Lessons/LessonCard.jsx": {
-    "file": "assets/LessonCard-c1ffa470.js",
+    "file": "assets/LessonCard-5816a9ea.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Modal-0d004a72.js",
-      "_Button-5d0bd51e.js"
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Modal-9376f476.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Lessons/LessonCard.jsx"
   },
   "resources/js/Pages/Course/Lessons/LessonForm.jsx": {
-    "file": "assets/LessonForm-5d36a08a.js",
+    "file": "assets/LessonForm-77085777.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Button-5d0bd51e.js",
-      "_Textarea-f90a160a.js"
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Button-b247fbc3.js",
+      "_Textarea-045079ae.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Lessons/LessonForm.jsx"
   },
   "resources/js/Pages/Course/Lessons/Lessons.jsx": {
-    "file": "assets/Lessons-7b5591b1.js",
+    "file": "assets/Lessons-5bf55e72.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Course/Lessons/LessonForm.jsx",
       "resources/js/Pages/Course/Lessons/LessonCard.jsx",
-      "_index.esm-edd1bfa1.js",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js"
+      "_index.esm-c0c7cce1.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Lessons/Lessons.jsx"
   },
   "resources/js/Pages/Course/Module/Module.jsx": {
-    "file": "assets/Module-8f730097.js",
+    "file": "assets/Module-07fd2378.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Course/Lessons/Lessons.jsx",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Button-5d0bd51e.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Course/Lessons/LessonForm.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
       "resources/js/Pages/Course/Lessons/LessonCard.jsx",
-      "_index.esm-edd1bfa1.js"
+      "_index.esm-c0c7cce1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Module/Module.jsx"
   },
   "resources/js/Pages/Course/Module/ModuleForm.jsx": {
-    "file": "assets/ModuleForm-198a7b0b.js",
+    "file": "assets/ModuleForm-3c2ef473.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
-      "_Button-5d0bd51e.js",
-      "_Modal-0d004a72.js"
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
+      "_Button-b247fbc3.js",
+      "_Modal-9376f476.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Module/ModuleForm.jsx"
   },
   "resources/js/Pages/Course/Module/Modules.jsx": {
-    "file": "assets/Modules-dbc6909d.js",
+    "file": "assets/Modules-24a8a0e8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Course/Module/Module.jsx",
       "resources/js/Pages/Course/Module/ModuleForm.jsx",
-      "_ConfirmModal-817ab9a2.js",
+      "_ConfirmModal-75f9a726.js",
       "resources/js/Pages/Course/Lessons/Lessons.jsx",
       "resources/js/Pages/Course/Lessons/LessonForm.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_Textarea-f90a160a.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
       "resources/js/Pages/Course/Lessons/LessonCard.jsx",
-      "_Tooltip-8f55ef20.js",
-      "_index.esm-edd1bfa1.js"
+      "_Tooltip-0632bf70.js",
+      "_index.esm-c0c7cce1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Course/Module/Modules.jsx"
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-73950287.js",
+    "file": "assets/Home-8bd0647a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AudioUploader-9fce9c08.js"
+      "_AudioUploader-666a65ce.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Home.jsx"
   },
-  "resources/js/Pages/Popular/Index.jsx": {
-    "file": "assets/Index-81e29ba9.js",
+  "resources/js/Pages/Podcasts/Form.jsx": {
+    "file": "assets/Form-49611534.js",
     "imports": [
       "resources/js/app.jsx",
-      "resources/js/Pages/Audio/Podcasts.jsx",
-      "_TableRow-e8dd088d.js",
-      "_Button-5d0bd51e.js",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Modal-0d004a72.js"
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Button-b247fbc3.js",
+      "_Textarea-045079ae.js",
+      "_ImageUploader-b979c7fb.js",
+      "_CustomSelect-11f5012a.js",
+      "_AudioUploader-666a65ce.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Podcasts/Form.jsx"
+  },
+  "resources/js/Pages/Podcasts/Index.jsx": {
+    "file": "assets/Index-8bbb24f1.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Button-b247fbc3.js",
+      "resources/js/Pages/Podcasts/Form.jsx",
+      "resources/js/Pages/Podcasts/Podcasts.jsx",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_Textarea-045079ae.js",
+      "_ImageUploader-b979c7fb.js",
+      "_CustomSelect-11f5012a.js",
+      "_AudioUploader-666a65ce.js",
+      "_TableData-72ed0c78.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Podcasts/Index.jsx"
+  },
+  "resources/js/Pages/Podcasts/Podcasts.jsx": {
+    "file": "assets/Podcasts-964eea3d.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_TableData-72ed0c78.js",
+      "_Button-b247fbc3.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Modal-9376f476.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Podcasts/Podcasts.jsx"
+  },
+  "resources/js/Pages/Popular/Index.jsx": {
+    "file": "assets/Index-f05106df.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "resources/js/Pages/Podcasts/Podcasts.jsx",
+      "_TableData-72ed0c78.js",
+      "_Button-b247fbc3.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Modal-9376f476.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Popular/Index.jsx"
   },
   "resources/js/Pages/Recommended/Index.jsx": {
-    "file": "assets/Index-7a77589a.js",
+    "file": "assets/Index-cafc9d7e.js",
     "imports": [
       "resources/js/app.jsx",
-      "resources/js/Pages/Audio/Podcasts.jsx",
-      "_TableRow-e8dd088d.js",
-      "_Button-5d0bd51e.js",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Modal-0d004a72.js"
+      "resources/js/Pages/Podcasts/Podcasts.jsx",
+      "_TableData-72ed0c78.js",
+      "_Button-b247fbc3.js",
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Modal-9376f476.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Recommended/Index.jsx"
   },
   "resources/js/Pages/Settings/Index.jsx": {
-    "file": "assets/Index-b3f6d172.js",
+    "file": "assets/Index-faa0cd69.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Settings/Version.jsx",
       "resources/js/Pages/Settings/TermsAndConditions.jsx",
-      "_Input-76a8ec44.js",
-      "_Button-5d0bd51e.js",
-      "_index.esm-25460143.js"
+      "_Input-8e9be8be.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Settings/Index.jsx"
@@ -350,95 +344,90 @@
     "css": [
       "assets/TermsAndConditions-29ff6413.css"
     ],
-    "file": "assets/TermsAndConditions-aa34d13f.js",
+    "file": "assets/TermsAndConditions-c14a5668.js",
     "imports": [
       "resources/js/app.jsx",
-      "_index.esm-25460143.js",
-      "_Button-5d0bd51e.js"
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Settings/TermsAndConditions.jsx"
   },
   "resources/js/Pages/Settings/Version.jsx": {
-    "file": "assets/Version-65c8881f.js",
+    "file": "assets/Version-72998eae.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Input-76a8ec44.js",
-      "_Button-5d0bd51e.js"
+      "_Input-8e9be8be.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Settings/Version.jsx"
   },
   "resources/js/Pages/Slider/Index.jsx": {
-    "file": "assets/Index-42c04bdf.js",
+    "file": "assets/Index-f056df16.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
+      "_Button-b247fbc3.js",
       "resources/js/Pages/Slider/SliderForm.jsx",
-      "_TableRow-e8dd088d.js",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_ImageUploader-1c0c6c0d.js"
+      "_TableData-72ed0c78.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_ImageUploader-b979c7fb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Slider/Index.jsx"
   },
   "resources/js/Pages/Slider/SliderForm.jsx": {
-    "file": "assets/SliderForm-cdf8b1e0.js",
+    "file": "assets/SliderForm-4bd28d1a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_ImageUploader-1c0c6c0d.js",
-      "_Button-5d0bd51e.js"
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_ImageUploader-b979c7fb.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Slider/SliderForm.jsx"
   },
   "resources/js/Pages/Testimonial/Form.jsx": {
-    "file": "assets/Form-3ae07f42.js",
+    "file": "assets/Form-7623e91d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_ImageUploader-1c0c6c0d.js",
-      "_Button-5d0bd51e.js"
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_ImageUploader-b979c7fb.js",
+      "_Button-b247fbc3.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Testimonial/Form.jsx"
   },
   "resources/js/Pages/Testimonial/Index.jsx": {
-    "file": "assets/Index-363475e4.js",
+    "file": "assets/Index-6e91e279.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Button-5d0bd51e.js",
-      "_TableRow-e8dd088d.js",
+      "_Button-b247fbc3.js",
+      "_TableData-72ed0c78.js",
       "resources/js/Pages/Testimonial/Form.jsx",
-      "_Tooltip-8f55ef20.js",
-      "_ConfirmModal-817ab9a2.js",
-      "_Modal-0d004a72.js",
-      "_Input-76a8ec44.js",
-      "_ImageUploader-1c0c6c0d.js"
+      "_Tooltip-0632bf70.js",
+      "_ConfirmModal-75f9a726.js",
+      "_Modal-9376f476.js",
+      "_Input-8e9be8be.js",
+      "_ImageUploader-b979c7fb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Testimonial/Index.jsx"
   },
   "resources/js/Pages/User/Index.jsx": {
-    "file": "assets/Index-ba1dae0c.js",
+    "file": "assets/Index-cc5dedb3.js",
     "imports": [
       "resources/js/app.jsx",
-      "_TableRow-e8dd088d.js",
-      "_index.esm-edd1bfa1.js",
-      "_Methods-7f3b15c6.js"
+      "_TableData-72ed0c78.js",
+      "_index.esm-c0c7cce1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/User/Index.jsx"
   },
   "resources/js/app.jsx": {
     "dynamicImports": [
-      "resources/js/Pages/Audio/Form.jsx",
-      "resources/js/Pages/Audio/Index.jsx",
-      "resources/js/Pages/Audio/Podcasts.jsx",
       "resources/js/Pages/Category/Form.jsx",
       "resources/js/Pages/Category/Index.jsx",
       "resources/js/Pages/Course/CourseCard.jsx",
@@ -451,6 +440,9 @@
       "resources/js/Pages/Course/Module/ModuleForm.jsx",
       "resources/js/Pages/Course/Module/Modules.jsx",
       "resources/js/Pages/Home.jsx",
+      "resources/js/Pages/Podcasts/Form.jsx",
+      "resources/js/Pages/Podcasts/Index.jsx",
+      "resources/js/Pages/Podcasts/Podcasts.jsx",
       "resources/js/Pages/Popular/Index.jsx",
       "resources/js/Pages/Recommended/Index.jsx",
       "resources/js/Pages/Settings/Index.jsx",
@@ -462,7 +454,7 @@
       "resources/js/Pages/Testimonial/Index.jsx",
       "resources/js/Pages/User/Index.jsx"
     ],
-    "file": "assets/app-f4743089.js",
+    "file": "assets/app-6a54aa77.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }

@@ -7,9 +7,11 @@ import ImageUploader from "../../components/ImageUploader.jsx";
 import { useForm } from "@inertiajs/react";
 import BackButton from "../../components/BackButton.jsx";
 import Modules from "./Module/Modules.jsx";
+import CustomSelect from "../../components/CustomSelect.jsx";
 
-const Form = ({ course }) => {
+const Form = ({ course , categories}) => {
 
+    console.log(categories);
     const { data, setData, errors, processing, post } = useForm(course ?? {});
 
     const handleSubmit = (e) => {
@@ -37,6 +39,17 @@ const Form = ({ course }) => {
                         <Input value={data?.title ?? ''} error={errors.title}
                             onChange={e => setData('title', e.target.value)}
                             label={'Title'} />
+                        <div>
+                            <CustomSelect label={'Category'} error={errors.category_id}
+                                          onChange={(e) => setData('category_id', e.target.value)}>
+                                <option value="">--- select ---</option>
+                                {
+                                    categories.map(item => (
+                                        <option key={item.id} value={item.id}>{item.name}</option>
+                                    ))
+                                }
+                            </CustomSelect>
+                        </div>
                         <Input value={data?.price ?? ''} error={errors.price}
                             onChange={e => setData('price', e.target.value)}
                             type={'number'} label={'Price'} />

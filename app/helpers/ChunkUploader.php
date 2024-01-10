@@ -37,7 +37,7 @@ class ChunkUploader
 
       return [
         'path' => $upload,
-        'playable' => Storage::url($upload),
+        'playable_file' => Storage::url($upload),
         'filename' => $fileName
       ];
     }

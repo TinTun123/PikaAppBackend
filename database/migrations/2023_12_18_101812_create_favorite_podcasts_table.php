@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('favorite_podcasts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('audio_id');
+            $table->foreignId('podcast_id');
 
-            $table->unique(['user_id','audio_id']);
+            $table->unique(['user_id','podcast_id']);
             $table->timestamps();
         });
     }

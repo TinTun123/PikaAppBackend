@@ -23,6 +23,7 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
+            'type' => 'required|string|in:podcast,course',
         ];
     }
 }

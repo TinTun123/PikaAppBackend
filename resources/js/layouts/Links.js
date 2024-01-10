@@ -24,27 +24,21 @@ let links = [
         can: true
     },
     {
-        title: 'Category',
-        link: 'category.index',
+        title: 'Podcast Category',
+        link: 'category.podcast.index',
         icon: 'MdOutlineCategory',
         can: true
     },
     {
+        title: 'Course Category',
+        link: 'category.course.index',
+        icon: 'BiCategory',
+        can: true
+    },
+    {
         title: 'Podcasts',
-        link: 'audio.index',
+        link: 'podcast.index',
         icon: 'PiApplePodcastsLogoThin',
-        can: true
-    },
-    {
-        title: 'Popular Podcasts',
-        link: 'popular.index',
-        icon: 'FaRegStar',
-        can: true
-    },
-    {
-        title: 'Recommended Podcasts',
-        link: 'recommended.index',
-        icon: 'FaRegShareFromSquare',
         can: true
     },
     {

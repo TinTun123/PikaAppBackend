@@ -22,7 +22,7 @@ const AudioUploader = ({handleUploadSuccess}) => {
     useEffect(() => {
         if (browseFile.current) {
             const resumable = new Resumable({
-                target: 'api/audio/upload',
+                target: 'api/podcast/upload',
                 method: 'POST',
                 query: {_token: page.props.csrf_token},
                 fileType: [],
@@ -60,7 +60,7 @@ const AudioUploader = ({handleUploadSuccess}) => {
 
     return (
         <div
-            className='p-10 border-[1.9px] border-gray-400 border-dashed'>
+            className='p-5 border-[1.9px] border-gray-400 border-dashed'>
             {
                 loading &&
                 <div style={{width: +percentage + '%'}}

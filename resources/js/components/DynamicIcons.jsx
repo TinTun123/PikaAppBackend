@@ -9,6 +9,7 @@ import { FaRegStar } from "react-icons/fa";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { FiSettings } from "react-icons/fi";
 import { MdOutlinePolicy } from "react-icons/md";
+import { BiCategory } from "react-icons/bi";
 
 
 const DynamicIcons = (props) => {
@@ -21,9 +22,10 @@ const DynamicIcons = (props) => {
         MdOutlineCategory,
         PiApplePodcastsLogoThin,
         FaRegStar,
-        FaRegShareFromSquare, 
+        FaRegShareFromSquare,
         FiSettings,
         MdOutlinePolicy,
+        BiCategory
     };
 
     const TagComponent = icons[props.name];

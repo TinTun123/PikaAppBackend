@@ -14,7 +14,12 @@ class CourseController extends Controller
     public function index()
     {
         return response()->json([
-            'courses' => Course::withCount('videos', 'modules')->latest()->paginate(10),
+            'courses' => Course::with('category')
+                ->withCount('videos', 'modules')
+                ->filterByPopular()
+                ->filterByRecommended()
+                ->latest()
+                ->paginate(10)
         ]);
     }
 
