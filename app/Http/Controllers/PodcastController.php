@@ -16,12 +16,16 @@ class PodcastController extends Controller
         }])->select('id', 'title', 'image', 'type', 'category_id', 'time', 'price')
             ->when(request('type'), function ($query) {
                 return $query->where('type', request('type'));
-            })
-            ->paginate(10);
+            });
+
+        if (request('limit')) {
+            $podcasts = $podcasts->take(intval(request('limit')))->get();
+        } else {
+            $podcasts = $podcasts->paginate(10);
+        }
+
         return response()->json([
             'podcasts' => $podcasts
         ]);
     }
-
-
 }
