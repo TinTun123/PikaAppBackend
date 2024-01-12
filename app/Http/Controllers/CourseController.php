@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
 use App\Models\Course;
+use App\Models\CourseUser;
 
 class CourseController extends Controller
 {
@@ -45,6 +46,19 @@ class CourseController extends Controller
                     return $query->where('published', true);
                 }
             ])->setAppends(['totalVideoLength']),
+        ]);
+    }
+
+    public function buy(Course $course)
+    {
+        if (CourseUser::where('course_id', $course->id)->where('user_id', auth()->id())->exists()) {
+            return response()->json([
+                'message' => 'You already bought this course',
+            ]);
+        }
+        $course->students()->attach(auth()->id());
+        return response()->json([
+            'message' => 'You have bought the course successfully!',
         ]);
     }
 }
