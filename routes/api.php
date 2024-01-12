@@ -43,6 +43,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/courses/{course:id}', [CourseController::class, 'show']);
 
     Route::get('/lessons/{video:id}', [VideoController::class, 'show']);
+    Route::post('/lessons/watched/{video:id}', [VideoController::class, 'toggleLessonWatched']);
 
     Route::get('categories/course', [CategoryController::class, 'getCourseCategory']);
     Route::get('categories/podcast', [CategoryController::class, 'getPodcastCategory']);
@@ -50,7 +51,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/version', [SettingController::class, 'getVersion']);
     Route::get('/terms', [SettingController::class, 'getTerms']);
 
-    Route::get('/podcasts',[PodcastController::class,'index']);
+    Route::get('/podcasts', [PodcastController::class, 'index']);
     Route::get('/podcasts/popular', [PopularPodcastController::class, 'index']);
     Route::get('/podcasts/recommended', [RecommendedPodcastController::class, 'index']);
 
@@ -59,7 +60,6 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', 'index');
         Route::post('/{podcast:id}', 'toggleFavorite');
     });
-
 });
 
 Route::post('/podcast/upload', [AdminPodcastController::class, 'uploadPodcast']);

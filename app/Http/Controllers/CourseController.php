@@ -31,16 +31,20 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
+
         return response()->json([
+            'hasAccess' => $course->hasAccess(auth()->user()),
             'course' => $course->load([
                 'modules' => function ($query) {
                     return $query->orderBy('number');
                 }, 'modules.videos' => function ($query) {
-                    return $query->select('title', 'id', 'description', 'course_id', 'module_id', 'number')->orderBy('number');
+                    return $query->select('duration', 'title', 'id', 'description', 'course_id', 'module_id', 'number')->orderBy('number')->withCount(['watched_users as watched' => function ($query) {
+                        return $query->where('user_id', auth()->id());
+                    }])->withCasts(['watched' => 'boolean']);
                 }, 'testimonials' => function ($query) {
                     return $query->where('published', true);
                 }
-            ]),
+            ])->setAppends(['totalVideoLength']),
         ]);
     }
 }

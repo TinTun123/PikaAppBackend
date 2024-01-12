@@ -11,8 +11,12 @@ use App\Http\Controllers\AdminSettingController;
 use App\Http\Controllers\AdminSliderController;
 use App\Http\Controllers\AdminTestimonialController;
 use App\Http\Controllers\AdminUserController;
+use App\Models\Course;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
+use Vimeo\Vimeo;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +30,24 @@ use Illuminate\Support\Facades\Storage;
 */
 
 Route::get('/', function () {
+
+    // return Course::with(['modules' => function ($query) {
+    //     return $query->select('id', 'title', 'course_id');
+    // }, 'modules.videos' => function ($query) {
+    //     return $query->select('id', 'course_id', 'module_id', 'duration');
+    // }])->first()->setAppends(['totalVideoLength']);
+    // $client = new Vimeo(env('VIMEO_ID'), env('VIMEO_SECRET'), env('VIMEO_TOKEN'));
+
+    // $response = $client->request('/videos/894419244', array(), 'GET');
+
+    // // working one 894419244
+    // // 889851110 
+    // if ($response['status'] !== 200) {
+    //     dd($response['body']['error']);
+    // } else {
+    //     dd($response['body']);
+    // }
+
 
     return inertia('Home');
 })->name('index');
@@ -78,8 +100,6 @@ Route::controller(AdminCategoryController::class)->prefix('/category')->name('ca
 
     Route::post('/store', 'store')->name('store');
     Route::post('/{category:id}', 'update')->name('update');
-
-
 });
 
 Route::controller(AdminPodcastController::class)->prefix('/podcast')->name('podcast.')->group(function () {
@@ -98,5 +118,4 @@ Route::controller(AdminSettingController::class)->prefix('settings')->name('sett
 
     Route::post('/version/update', 'updateVersion')->name('version.update');
     Route::post('/terms/update', 'updateTerms')->name('terms.update');
-
 });

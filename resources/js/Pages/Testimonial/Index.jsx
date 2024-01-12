@@ -63,7 +63,7 @@ const Index = ({ testimonials, course }) => {
       <ConfirmModal onCancel={() => setDeleteModalOpen(false)} onConfirm={deleteTestimonial} show={deleteModalOpen} />
       <Form type={type} showForm={showForm} course={course} selectedTestimonial={selectedTestimonial} setShowForm={setShowForm} />
       <div className="flex justify-between ">
-        <Button onClick={() => handleAddNew()} >Create Testimonial</Button>
+        <Button className={'!px-5'} onClick={() => handleAddNew()} >Create Testimonial</Button>
         <button onClick={() => setTable(!table)} className="p-2 bg-gray-200 text-xl"><BsGridFill /></button>
       </div>
 

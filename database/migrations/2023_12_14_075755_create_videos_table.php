@@ -20,8 +20,9 @@ return new class extends Migration
             $table->foreignId('course_id')->constrained('courses');
             $table->foreignId('module_id')->constrained('modules');
             $table->integer('number');
+            $table->integer('duration');
 
-            $table->unique(['number','module_id']);
+            $table->unique(['number', 'module_id']);
             $table->timestamps();
         });
     }

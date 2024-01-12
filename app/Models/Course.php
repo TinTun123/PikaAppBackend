@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -25,10 +26,36 @@ class Course extends Model
         return Storage::url($this->attributes['image']);
     }
 
+
     public function modules()
     {
         return $this->hasMany(Module::class);
     }
+
+    public function students()
+    {
+        return $this->belongsToMany(User::class, 'course_users', 'course_id', 'user_id');
+    }
+
+
+    public function hasAccess(User $user)
+    {
+        return CourseUser::where('user_id', $user->id)->where('course_id', $this->id)->exists();
+    }
+
+
+    public function getTotalVideoLengthAttribute()
+    {
+        return $this->modules->reduce(function ($total_module_video_length, $module) {
+            return $total_module_video_length + $module->videos->reduce(function ($total_lesson_video_length, $lesson) {
+                return $total_lesson_video_length + ($lesson->duration ? (int) $lesson->duration : 0);
+            }, 0);
+        }, 0);
+    }
+
+
+
+
 
     public function testimonials()
     {
@@ -54,4 +81,3 @@ class Course extends Model
         });
     }
 }
-

@@ -9,7 +9,7 @@ import BackButton from "../../components/BackButton.jsx";
 import Modules from "./Module/Modules.jsx";
 import CustomSelect from "../../components/CustomSelect.jsx";
 
-const Form = ({ course , categories}) => {
+const Form = ({ course, categories }) => {
 
     console.log(categories);
     const { data, setData, errors, processing, post } = useForm(course ?? {});
@@ -41,7 +41,7 @@ const Form = ({ course , categories}) => {
                             label={'Title'} />
                         <div>
                             <CustomSelect label={'Category'} error={errors.category_id}
-                                          onChange={(e) => setData('category_id', e.target.value)}>
+                                onChange={(e) => setData('category_id', e.target.value)}>
                                 <option value="">--- select ---</option>
                                 {
                                     categories.map(item => (
@@ -58,7 +58,7 @@ const Form = ({ course , categories}) => {
                         <Textarea error={errors.description} rows={4} value={data?.description ?? ''} label={'Description'}
                             onChange={e => setData('description', e.target.value)} />
                         <div className={'flex justify-end'}>
-                            <Button type={'submit'} loading={processing}>Save Course</Button>
+                            <Button type={'submit'} className={'!w-[120px]'} loading={processing}>Save Course</Button>
                         </div>
                     </form>
                 </div>

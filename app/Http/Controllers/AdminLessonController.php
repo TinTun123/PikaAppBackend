@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\helpers\VimeoHelper;
 use App\Http\Requests\StoreLessonRequest;
 use App\Http\Requests\UpdateLessonRequest;
 use App\Models\Video;
@@ -9,6 +10,11 @@ use Illuminate\Http\Request;
 
 class AdminLessonController extends Controller
 {
+    private $vimeoHelper;
+    public function __construct(VimeoHelper $vimeoHelper)
+    {
+        $this->vimeoHelper = $vimeoHelper;
+    }
     public function store(StoreLessonRequest $request)
     {
         $moduleExist = Video::where('module_id', $request->module_id)->where('number', $request->number)->first();
@@ -16,6 +22,14 @@ class AdminLessonController extends Controller
             return back()->withErrors(['number' => 'Video with the same number already exists!']);
         }
         $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
+
+        $response = $this->vimeoHelper->getVideoDuration($request->video);
+        if ($response['status'] !== 200) {
+            return back()->withErrors(['video' => $response['error']]);
+        } else {
+            $attributes['duration'] = $response['duration'];
+        }
+
         $attributes['type'] = 'vimeo';
         Video::create($attributes);
         return back();
@@ -30,6 +44,14 @@ class AdminLessonController extends Controller
             }
         }
         $attributes = $request->only('title', 'description', 'number', 'video', 'course_id', 'module_id');
+
+        $response = $this->vimeoHelper->getVideoDuration($request->video);
+        if ($response['status'] !== 200) {
+            return back()->withErrors(['video' => $response['error']]);
+        } else {
+            $attributes['duration'] = $response['duration'];
+        }
+
         $video->update($attributes);
         return back();
     }

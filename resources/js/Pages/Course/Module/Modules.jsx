@@ -25,8 +25,8 @@ const Modules = ({ course }) => {
             <ConfirmModal />
             <ModuleForm module={selectModule} courseId={course?.id} setShowForm={setShowForm} showForm={showForm} />
             <div className={'flex justify-between mb-3'}>
-                <Button href={route('testimonial.index',course.id)} >Manage Testimonials</Button>
-                <Button onClick={prepareNewForm}>Add Module</Button>
+                <Button className={'!px-5'} href={route('testimonial.index', course.id)} >Manage Testimonials</Button>
+                <Button className={'!px-5'} onClick={prepareNewForm}>Add Module</Button>
             </div>
             <LayoutGroup className={''}>
                 {
