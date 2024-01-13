@@ -1,8 +1,8 @@
 import { createInertiaApp } from '@inertiajs/react'
 import { createRoot } from 'react-dom/client'
-import {resolvePageComponent} from "laravel-vite-plugin/inertia-helpers";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
 import AdminLayout from "./layouts/AdminLayout.jsx";
-import {Toaster} from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 window.route = route;
 
 createInertiaApp({
@@ -10,7 +10,7 @@ createInertiaApp({
         let page = await resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx'));
         page = page.default;
 
-        if (page.layout === undefined && name !== 'Login') {
+        if (page.layout === undefined && name !== 'Auth/Login') {
             page.layout = AdminLayout;
         }
         return page;

@@ -53,7 +53,7 @@ const AdminSideBar = ({children}) => {
                 <div className="px-3">
                     <button
                         onClick={() => console.log('logout')}
-                        className="!w-full !bg-rose-100 !text-rose-500 !text-[17px] font-medium hover:!bg-rose-500 hover:!text-white"
+                        className="!w-full !bg-rose-100 !text-red-500 !text-[17px] font-medium hover:!bg-red-500 hover:!text-white"
                     >
                         Logout
                     </button>

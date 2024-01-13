@@ -46,6 +46,11 @@ class User extends Authenticatable
 
     public function favoritePodcasts()
     {
-        return $this->belongsToMany(Podcast::class, 'favorite_podcasts','user_id','podcast_id');
+        return $this->belongsToMany(Podcast::class, 'favorite_podcasts', 'user_id', 'podcast_id');
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 }

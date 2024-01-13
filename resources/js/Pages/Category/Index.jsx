@@ -5,12 +5,16 @@ import Table from '../../components/Table';
 import TableRow from '../../components/TableRow';
 import TableData from '../../components/TableData';
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { Dropdown } from 'flowbite-react';
+import ConfirmModal from "../../components/ConfirmModal";
+import { useForm } from "@inertiajs/react";
+import Dropdown from "../../components/common/Dropdown";
 
 const Index = ({ categories }) => {
 
   const [formOpen, setFormOpen] = useState(false);
   const [currentCategory, setCurrentCategory] = useState(null);
+
+  const { delete: destroy } = useForm({});
 
   const prepareForEdit = (category) => {
     setCurrentCategory(category);
@@ -26,8 +30,12 @@ const Index = ({ categories }) => {
 
   }
 
+  const handleDelete = () => {
+  }
+
   return (
     <>
+      {/* <ConfirmModal onConfirm={handleDelete} /> */}
       <div>
         <Button onClick={prepareNewForm} >Create Category</Button>
       </div>

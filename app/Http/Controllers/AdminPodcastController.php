@@ -7,8 +7,10 @@ use App\Http\Requests\StorePodcastRequest;
 use App\Http\Requests\UpdatePodcastRequest;
 use App\Models\Category;
 use App\Models\Podcast;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Owenoj\LaravelGetId3\GetId3;
 
 class AdminPodcastController extends Controller
 {
@@ -24,7 +26,13 @@ class AdminPodcastController extends Controller
     public function store(StorePodcastRequest $request)
     {
         $attributes = $request->only('title', 'file', 'category_id', 'type', 'time', 'price', 'description', 'author');
-        $attributes['time'] = 10000;
+        try {
+            $track = GetId3::fromDiskAndPath('public', $request->file);
+            $attributes['duration'] = $track->getPlaytimeSeconds();
+        } catch (Exception $e) {
+            return back()->withErrors(['file' => $e->getMessage()]);
+        }
+
         $attributes['image'] = $request->file('image')->store('podcasts');
         Podcast::create($attributes);
         return back();
@@ -36,7 +44,14 @@ class AdminPodcastController extends Controller
         if ($request->type === 'free') {
             $attributes['price'] = null;
         }
-        $attributes['time'] = 10000;
+
+        try {
+            $track = GetId3::fromDiskAndPath('public', $request->file);
+            $attributes['duration'] = $track->getPlaytimeSeconds();
+        } catch (Exception $e) {
+            return back()->withErrors(['file' => $e->getMessage()]);
+        }
+
         $podcast->update($attributes);
         return back();
     }

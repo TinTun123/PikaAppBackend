@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link, router} from "@inertiajs/react";
-import {Dropdown} from "flowbite-react";
-import {BsThreeDotsVertical} from "react-icons/bs";
-import {SlBadge} from "react-icons/sl";
+import { Link, router } from "@inertiajs/react";
+import Dropdown from "../../components/common/Dropdown";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { SlBadge } from "react-icons/sl";
 
-const CourseCard = ({course, handleDeleteModal}) => {
+const CourseCard = ({ course, handleDeleteModal }) => {
 
 
     const handleTogglePopular = () => {
@@ -24,10 +24,10 @@ const CourseCard = ({course, handleDeleteModal}) => {
             {
                 course.popular ?
                     <div className={'absolute text-white p-3 bg-yellow-400 top-0 right-0 rounded-full '}>
-                        <SlBadge/>
+                        <SlBadge />
                     </div> : null
             }
-            <img className={'h-[200px] w-full object-cover rounded-lg '} src={course.image} alt=""/>
+            <img className={'h-[200px] w-full object-cover rounded-lg '} src={course.image} alt="" />
             <div className={'flex flex-col gap-5 w-full justify-between'}>
                 <div className={'flex justify-between mt-2'}>
                     <p className={'bg-gray-100 text-sm py-1 px-2 rounded-lg '}>{course.modules_count} modules</p>
@@ -42,22 +42,22 @@ const CourseCard = ({course, handleDeleteModal}) => {
                     <div className={'flex gap-5'}>
                         <Dropdown className={'!bg-white'} label='' renderTrigger={() => (
                             <div className={'cursor-pointer'}>
-                                <BsThreeDotsVertical/>
+                                <BsThreeDotsVertical />
                             </div>
                         )}>
                             <Dropdown.Item className={'hover:!bg-gray-100 !text-black'}
-                                           onClick={() => handleTogglePopular(course.id)}>
+                                onClick={() => handleTogglePopular(course.id)}>
                                 {course.popular ? 'Remove from popular' : 'Add to popular'}
                             </Dropdown.Item>
                             <Dropdown.Item className={'hover:!bg-gray-100 !text-black'}
-                                           onClick={() => handleToggleRecommended(course.id)}>
+                                onClick={() => handleToggleRecommended(course.id)}>
                                 {course.recommended ? 'Remove from recommended' : 'Add to recommended'}
                             </Dropdown.Item>
                             <Dropdown.Item
                                 className={'hover:!bg-gray-100 !text-black'}
                                 onClick={() => router.get(route('courses.edit', course.id))}>Edit</Dropdown.Item>
                             <Dropdown.Item className={'hover:!bg-gray-100 !text-black'}
-                                           onClick={() => handleDeleteModal(course.id)}>Delete</Dropdown.Item>
+                                onClick={() => handleDeleteModal(course.id)}>Delete</Dropdown.Item>
                         </Dropdown>
                     </div>
                 </div>

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('version');
             $table->longText('terms');
+            $table->string('job');
+            $table->longText('bio');
+            $table->text('profile');
             $table->timestamps();
         });
     }

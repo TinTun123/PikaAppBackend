@@ -1,22 +1,26 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Modal from '../../components/Modal';
-import {useForm, usePage} from '@inertiajs/react';
+import { useForm, usePage } from '@inertiajs/react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-const Form = ({setFormOpen, show, category}) => {
+const Form = ({ setFormOpen, show, category }) => {
 
     const page = usePage();
 
-    let type = '';
-    if (page.url === '/category/course') {
-        type = 'course';
-    } else {
-        type = 'podcast';
-    }
+    const { data, setData, errors, post, processing, reset } = useForm({});
 
-    const {data, setData, errors, post, processing} = useForm({type});
 
+    useEffect(() => {
+        let type = '';
+        if (page.url === '/category/course') {
+            type = 'course';
+        } else {
+            type = 'podcast';
+        }
+        setData('type', type)
+    }, [processing]);
+    console.log('hello');
     useEffect(() => {
         if (category) {
             setData(category);
@@ -30,6 +34,7 @@ const Form = ({setFormOpen, show, category}) => {
             onSuccess: () => {
                 setFormOpen(false);
                 setData({});
+                reset();
             }
         })
     }
@@ -37,8 +42,8 @@ const Form = ({setFormOpen, show, category}) => {
         <Modal show={show} onClose={() => setFormOpen(false)}>
             <form onSubmit={handleSubmit} className={'col-span-2 flex flex-col gap-3'}>
                 <Input value={data?.name ?? ''} error={errors.name}
-                       onChange={e => setData('name', e.target.value)}
-                       label={'Name'}/>
+                    onChange={e => setData('name', e.target.value)}
+                    label={'Name'} />
                 <div className={'flex justify-end'}>
                     <Button type={'submit'} className={'w-[200px]'} loading={processing}>Save</Button>
                 </div>

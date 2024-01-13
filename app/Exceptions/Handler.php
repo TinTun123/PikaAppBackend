@@ -23,7 +23,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof AuthenticationException) {
+        if ($exception instanceof AuthenticationException && str_contains($request->url(), 'api')) {
             return response()->json(['message' => 'Authentication failed'], 401);
         }
 

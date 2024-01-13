@@ -17,13 +17,13 @@ return new class extends Migration
             $table->string('image');
             $table->string('file');
             $table->string('category_id');
-            $table->string('time');
+            $table->integer('duration');
             $table->string('price')->nullable();
             $table->string('description');
             $table->string('author');
             $table->boolean('popular')->default(false);
             $table->boolean('recommended')->default(false);
-            $table->enum('type',['paid','free']);
+            $table->enum('type', ['paid', 'free']);
             $table->timestamps();
         });
     }

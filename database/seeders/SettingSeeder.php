@@ -16,6 +16,9 @@ class SettingSeeder extends Seeder
         Setting::create([
             'version' => '1.0',
             'terms' => '',
+            'job' => 'Founder & CEO at PikaSharing',
+            'bio' => 'A gambler',
+            'profile' => fake()->imageUrl(500, 500),
         ]);
     }
 }

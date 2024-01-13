@@ -1,33 +1,32 @@
-import React, {useState} from 'react'
-import {useForm} from '@inertiajs/react';
+import React, { useState } from 'react'
+import { useForm } from '@inertiajs/react';
 import Table from '../../components/Table';
 import TableData from '../../components/TableData';
 import TableRow from '../../components/TableRow';
 import Button from '../../components/Button';
-import {Dropdown} from 'flowbite-react';
-import {BsThreeDotsVertical} from 'react-icons/bs';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 import ConfirmModal from '../../components/ConfirmModal';
 import Paginator from "../../components/Paginator.jsx";
+import Dropdown from "../../components/common/Dropdown.jsx";
 
-
-const Podcasts = ({podcasts, prepareForEdit, links}) => {
+const Podcasts = ({ podcasts, prepareForEdit, links }) => {
 
     const [confirmModalOpen, setConfirmModalOpen] = useState(false);
     const [currentPodcast, setCurrentPodcast] = useState(null);
-    const {delete: deletePodcastMethod} = useForm({});
+    const { delete: deletePodcastMethod } = useForm({});
 
     const columns = [
-        {field: 'Title'},
-        {field: 'Status'},
-        {field: 'price'},
-        {field: 'image'},
-        {field: 'file'},
-        {field: 'category'},
-        {field: 'popular'},
-        {field: 'recommended'},
+        { field: 'Title' },
+        { field: 'Status' },
+        { field: 'price' },
+        { field: 'image' },
+        { field: 'file' },
+        { field: 'category' },
+        { field: 'popular' },
+        { field: 'recommended' },
     ]
 
-    const {post} = useForm({});
+    const { post } = useForm({});
     const togglePopular = (id) => {
         post(route('podcast.togglePopular', id), {
             onSuccess: () => {
@@ -62,7 +61,7 @@ const Podcasts = ({podcasts, prepareForEdit, links}) => {
     return (
         <div className={'overflow-x-scroll'}>
             <ConfirmModal onCancel={() => setConfirmModalOpen(false)} onConfirm={deletePodcast}
-                          show={confirmModalOpen}/>
+                show={confirmModalOpen} />
             <Table columns={columns}>
                 {
                     podcasts.map(item => (
@@ -77,12 +76,12 @@ const Podcasts = ({podcasts, prepareForEdit, links}) => {
                                 {item.price}
                             </TableData>
                             <TableData>
-                                <img width={100} src={item.image} alt=""/>
+                                <img width={100} src={item.image} alt="" />
                             </TableData>
                             <TableData>
                                 <audio controls>
                                     {/* http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3 */}
-                                    <source src={item.playable_file} type="audio/mp3"/>
+                                    <source src={item.playable_file} type="audio/mp3" />
                                 </audio>
                             </TableData>
                             <TableData>
@@ -102,7 +101,7 @@ const Podcasts = ({podcasts, prepareForEdit, links}) => {
                             <TableData>
                                 <Dropdown label='' renderTrigger={() => (
                                     <div className={'cursor-pointer'}>
-                                        <BsThreeDotsVertical/>
+                                        <BsThreeDotsVertical />
                                     </div>
                                 )}>
                                     <Dropdown.Item onClick={() => prepareForEdit(item)}>Edit</Dropdown.Item>
@@ -113,7 +112,7 @@ const Podcasts = ({podcasts, prepareForEdit, links}) => {
                     ))
                 }
             </Table>
-            <Paginator links={links}/>
+            <Paginator links={links} />
         </div>
     )
 }
