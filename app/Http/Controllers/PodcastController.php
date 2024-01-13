@@ -13,7 +13,7 @@ class PodcastController extends Controller
     {
         $podcasts = Podcast::with(['category' => function ($query) {
             return $query->select('name', 'id');
-        }])->select('id', 'title', 'image', 'type', 'category_id', 'time', 'price')
+        }])->select('id', 'title', 'image', 'type', 'category_id', 'duration', 'price')
             ->when(request('type'), function ($query) {
                 return $query->where('type', request('type'));
             });

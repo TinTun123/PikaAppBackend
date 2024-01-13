@@ -11,7 +11,7 @@ class RecommendedPodcastController extends Controller
     {
         $podcasts = Podcast::with(['category' => function ($query) {
             return $query->select('name', 'id');
-        }])->select('id', 'title', 'image', 'category_id', 'type', 'recommended', 'time', 'price')
+        }])->select('id', 'title', 'image', 'category_id', 'type', 'recommended', 'duration', 'price')
             ->where('recommended', true);
 
         if (request('limit')) {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCourseRequest;
 use App\Http\Requests\UpdateCourseRequest;
+use App\Http\Resources\CourseResource;
 use App\Models\Course;
 use App\Models\CourseUser;
 
@@ -33,9 +34,12 @@ class CourseController extends Controller
     public function show(Course $course)
     {
 
-        return response()->json([
-            'hasAccess' => $course->hasAccess(auth()->user()),
-            'course' => $course->load([
+        $courseDetail = $course
+            ->loadCount(['saved_users as saved' => function ($query) {
+                return $query->where('user_id', auth()->id());
+            }])
+            ->load([
+
                 'modules' => function ($query) {
                     return $query->orderBy('number');
                 }, 'modules.videos' => function ($query) {
@@ -45,7 +49,11 @@ class CourseController extends Controller
                 }, 'testimonials' => function ($query) {
                     return $query->where('published', true);
                 }
-            ])->setAppends(['totalVideoLength']),
+            ])->setAppends(['totalVideoLength']);
+        $courseDetail->saved = boolval($courseDetail->saved);
+        return response()->json([
+            'hasAccess' => $course->hasAccess(auth()->user()),
+            'course' => $courseDetail,
         ]);
     }
 

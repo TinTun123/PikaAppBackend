@@ -7,6 +7,7 @@ use App\Http\Controllers\FavoritePodcastController;
 use App\Http\Controllers\PodcastController;
 use App\Http\Controllers\PopularPodcastController;
 use App\Http\Controllers\RecommendedPodcastController;
+use App\Http\Controllers\SavedCourseController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
@@ -62,6 +63,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::controller(FavoritePodcastController::class)->prefix('favorite')->group(function () {
         Route::get('/', 'index');
         Route::post('/{podcast:id}', 'toggleFavorite');
+    });
+
+    Route::controller(SavedCourseController::class)->prefix('saved')->group(function () {
+        Route::get('/', 'index');
+        Route::post('/{course:id}', 'toggleSaved');
     });
 });
 

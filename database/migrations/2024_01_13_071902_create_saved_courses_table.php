@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('favorite_podcasts', function (Blueprint $table) {
+        Schema::create('saved_courses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('podcast_id');
+            $table->foreignId('course_id');
 
-            $table->unique(['user_id', 'podcast_id']);
+            $table->unique(['user_id', 'course_id']);
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('favorite_podcasts');
+        Schema::dropIfExists('saved_courses');
     }
 };
