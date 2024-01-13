@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\SavedCourse;
+use Illuminate\Support\Facades\DB;
 
 class SavedCourseController extends Controller
 {
     public function index()
     {
         $user = auth()->user();
-        $courses = $user->savedCourses()->paginate(10);
+        $courses = $user->savedCourses()->paginate(5);
         return response()->json([
             'courses' => $courses
         ]);

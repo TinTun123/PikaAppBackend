@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function savedCourses()
     {
-        return $this->belongsToMany(Course::class, 'saved_courses', 'user_id', 'course_id')->withTimestamps();
+        return $this->belongsToMany(Course::class, 'saved_courses', 'user_id', 'course_id')->withTimestamps()->orderByPivot('created_at', 'desc')->withCount(['modules', 'videos'])->with('category');
     }
 
     public function role()

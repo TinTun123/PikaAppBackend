@@ -45,7 +45,7 @@ class Course extends Model
 
     public function saved_users()
     {
-        return $this->belongsToMany(User::class, 'saved_courses', 'course_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'saved_courses', 'course_id', 'user_id');
     }
 
 
