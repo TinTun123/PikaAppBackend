@@ -8,11 +8,15 @@ const CourseCard = ({ course, handleDeleteModal }) => {
 
 
     const handleTogglePopular = () => {
-        router.post(route('courses.togglePopular', course.id));
+        router.post(route('courses.togglePopular', course.id), {}, {
+            preserveScroll: true,
+        });
     }
 
     const handleToggleRecommended = () => {
-        router.post(route('courses.toggleRecommended', course.id));
+        router.post(route('courses.toggleRecommended', course.id), {}, {
+            preserveScroll: true,
+        });
     }
 
 

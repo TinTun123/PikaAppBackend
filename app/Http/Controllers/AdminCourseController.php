@@ -14,7 +14,7 @@ class AdminCourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::with('category')->withCount('modules')->latest()->paginate(10);
+        $courses = Course::with('category')->withCount('modules')->latest()->paginate(9);
         return inertia('Course/Index', [
             'courses' => $courses,
         ]);
@@ -69,6 +69,4 @@ class AdminCourseController extends Controller
         $course->update(['recommended' => !$course->recommended]);
         return back();
     }
-
-
 }
