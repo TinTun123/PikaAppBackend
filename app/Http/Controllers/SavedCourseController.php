@@ -11,7 +11,7 @@ class SavedCourseController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $courses = $user->savedCourses()->paginate(5);
+        $courses = $user->savedCourses()->paginate(10);
         return response()->json([
             'courses' => $courses
         ]);
