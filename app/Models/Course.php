@@ -85,4 +85,11 @@ class Course extends Model
             return $query->where('recommended', boolval(intval(request('recommended'))));
         });
     }
+
+    public function scopeFilterByCategory($query)
+    {
+        return $query->when(request('category_id'), function ($query) {
+            return $query->where('category_id', request('category_id'));
+        });
+    }
 }

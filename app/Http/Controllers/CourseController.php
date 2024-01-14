@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreCourseRequest;
-use App\Http\Requests\UpdateCourseRequest;
-use App\Http\Resources\CourseResource;
 use App\Models\Course;
 use App\Models\CourseUser;
+use Illuminate\Support\Facades\Request;
 
 class CourseController extends Controller
 {
@@ -17,6 +15,7 @@ class CourseController extends Controller
     {
         $courses = Course::with('category')
             ->withCount('videos', 'modules')
+            ->filterByCategory()
             ->filterByPopular()
             ->filterByRecommended()
             ->latest();
@@ -25,6 +24,17 @@ class CourseController extends Controller
             $courses = $courses->take(intval(request('limit')))->get();
         } else {
             $courses = $courses->paginate(10);
+        }
+        return response()->json([
+            'courses' => $courses,
+        ]);
+    }
+
+    public function searchCourse()
+    {
+        $courses = [];
+        if (request('search')) {
+            $courses = Course::select('title', 'id')->where('title', 'like', '%' . request('search') . '%')->paginate(20);
         }
         return response()->json([
             'courses' => $courses,
