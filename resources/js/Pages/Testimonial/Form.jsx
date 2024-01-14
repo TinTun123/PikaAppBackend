@@ -29,7 +29,13 @@ const Form = ({ course, showForm, setShowForm, selectedTestimonial, type }) => {
     let url = type === 'create' ? route('testimonial.store') : route('testimonial.update', selectedTestimonial.id);
     post(url, {
       preserveScroll: true,
-      onSuccess: () => setShowForm(false)
+      onSuccess: () => {
+        setShowForm(false);
+        setData({
+          course_id: course.id,
+          published: true,
+        });
+      }
     });
   };
 

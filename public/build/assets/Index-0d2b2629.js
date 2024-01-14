@@ -1,0 +1,1 @@
+import{j as o}from"./app-06846077.js";import r from"./Podcasts-6757cc49.js";import"./TableData-4071be56.js";import"./Button-f38eb035.js";import"./ConfirmModal-3b1fdf75.js";import"./Modal-0b8b9798.js";import"./Paginator-40d3407d.js";import"./Dropdown-7ab82110.js";import"./Tooltip-a65b9455.js";const f=({podcasts:t})=>o.jsx(r,{podcasts:t});export{f as default};

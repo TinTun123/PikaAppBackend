@@ -1,1 +1,0 @@
-import{j as s}from"./app-ca5fa7a3.js";import{D as t}from"./Tooltip-f5f4c8bf.js";const o=({children:r,renderTrigger:e})=>s.jsx(t,{className:"!bg-white",label:"",renderTrigger:()=>s.jsx("div",{className:"cursor-pointer",children:e()}),children:r}),a=({children:r,...e})=>s.jsx(t.Item,{...e,className:"hover:!bg-gray-100 !text-black",children:r});o.Item=a;export{o as D};
