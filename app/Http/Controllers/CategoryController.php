@@ -13,15 +13,28 @@ class CategoryController extends Controller
      */
     public function getCourseCategory()
     {
+        $categories = Category::where('type', 'course')->select('id', 'name');
+
+        if (request('limit')) {
+            $categories = $categories->take(request('limit'))->get();
+        } else {
+            $categories = $categories->get();
+        }
         return response()->json([
-            'categories' => Category::where('type', 'course')->select('id', 'name')->take(10)->get(),
+            'categories' => $categories,
         ]);
     }
 
     public function getPodcastCategory()
     {
+        $categories = Category::where('type', 'podcast')->select('id', 'name');
+        if (request('limit')) {
+            $categories = $categories->take(request('limit'))->get();
+        } else {
+            $categories = $categories->get();
+        }
         return response()->json([
-            'categories' => Category::where('type', 'podcast')->select('id', 'name')->take(10)->get(),
+            'categories' => $categories,
         ]);
     }
 }
