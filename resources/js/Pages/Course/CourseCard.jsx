@@ -21,7 +21,7 @@ const CourseCard = ({ course, handleDeleteModal }) => {
 
 
     return (
-        <div onClick={() => router.get(route('courses.edit', course.id))} className={' w-full p-4  relative bg-white rounded-lg cursor-pointer'}>
+        <div className={' w-full p-4  relative bg-white rounded-lg cursor-pointer'}>
             <div className={'bg-gray-100 bg-opacity-90 rounded-lg p-1 mt-1 ml-2 absolute '}>
                 {course.category.name}
             </div>
