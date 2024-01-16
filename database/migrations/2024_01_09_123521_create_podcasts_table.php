@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('podcasts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->string('file');
+            $table->text('title');
+            $table->text('image');
+            $table->text('file');
             $table->string('category_id');
             $table->integer('duration');
             $table->integer('price')->nullable();
-            $table->string('description');
-            $table->string('author');
+            $table->longText('description');
+            $table->longText('author');
             $table->boolean('popular')->default(false);
             $table->boolean('recommended')->default(false);
             $table->enum('type', ['paid', 'free']);
