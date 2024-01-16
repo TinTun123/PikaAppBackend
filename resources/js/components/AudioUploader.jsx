@@ -2,7 +2,7 @@ import {usePage} from '@inertiajs/react';
 import React, {useEffect, useRef, useState} from 'react'
 import Resumable from 'resumablejs';
 
-const AudioUploader = ({handleUploadSuccess}) => {
+const AudioUploader = ({handleUploadSuccess, uri = 'api/podcast/upload'}) => {
     const page = usePage();
     const [openModal, setOpenModal] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -22,10 +22,10 @@ const AudioUploader = ({handleUploadSuccess}) => {
     useEffect(() => {
         if (browseFile.current) {
             const resumable = new Resumable({
-                target: 'api/podcast/upload',
+                target: route('podcast.upload'),
                 method: 'POST',
                 query: {_token: page.props.csrf_token},
-                fileType: [],
+                fileType: ['mp3', 'wav', 'aac', 'flac', 'ogg', 'wma', 'aiff', 'm4a', 'ac3', 'amr'],
                 chunkSize: 1 * 1024 * 1024, // default is 1*1024*1024, this should be less than your maximum limit in php.ini
                 headers: {
                     'Accept': 'application/json'

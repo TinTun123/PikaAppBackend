@@ -9,8 +9,8 @@ class Module extends Model
 {
     use HasFactory;
 
-    public function videos()
+    public function lessons()
     {
-        return $this->hasMany(Video::class);
+        return $this->hasMany(Lesson::class);
     }
 }

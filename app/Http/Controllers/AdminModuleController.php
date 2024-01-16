@@ -7,7 +7,7 @@ use App\Http\Requests\StoreModuleRequest;
 use App\Http\Requests\UpdateLessonRequest;
 use App\Http\Requests\UpdateModuleRequest;
 use App\Models\Module;
-use App\Models\Video;
+use App\Models\Lesson;
 use Illuminate\Http\Request;
 
 class AdminModuleController extends Controller

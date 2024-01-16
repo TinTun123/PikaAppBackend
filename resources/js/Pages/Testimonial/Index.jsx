@@ -8,9 +8,8 @@ import Form from "./Form";
 import { AnimatePresence, LayoutGroup } from "framer-motion";
 import { motion } from 'framer-motion';
 import { BsGridFill, BsThreeDotsVertical } from "react-icons/bs";
-import { Dropdown } from "flowbite-react";
 import ConfirmModal from "../../components/ConfirmModal";
-
+import Dropdown from "../../components/common/Dropdown.jsx";
 
 
 const columns = [
@@ -89,7 +88,7 @@ const Index = ({ testimonials, course }) => {
                       </Button>
                     </TableData>
                     <TableData>
-                      <Dropdown className={'bg-white'} label='' renderTrigger={() => (
+                      <Dropdown  label='' renderTrigger={() => (
                         <div className={'cursor-pointer'}>
                           <BsThreeDotsVertical />
                         </div>
@@ -108,7 +107,7 @@ const Index = ({ testimonials, course }) => {
             <div className="grid grid-cols-1 mt-3 lg:grid-cols-3 gap-3 ">
               {
                 testimonials.map(item => (
-                  <div className="border border-dashed border-gray-300 flex flex-col gap-3 justify-between max-h-[330px] p-3">
+                  <div key={item.id} className="border border-dashed border-gray-300 flex flex-col gap-3 justify-between max-h-[330px] p-3">
                     {
                       item.type === 'video' &&
                       <div className="relative aspect-video ">

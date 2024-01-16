@@ -11,7 +11,7 @@ use App\Http\Controllers\SavedCourseController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
-use App\Http\Controllers\VideoController;
+use App\Http\Controllers\LessonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,8 +47,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/courses/buy/{course:id}', [CourseController::class, 'buy']);
 
 
-    Route::get('/lessons/{video:id}', [VideoController::class, 'show']);
-    Route::post('/lessons/watched/{video:id}', [VideoController::class, 'toggleLessonWatched']);
+    Route::get('/lessons/{video:id}', [LessonController::class, 'show']);
+    Route::post('/lessons/watched/{video:id}', [LessonController::class, 'toggleLessonWatched']);
 
     Route::get('categories/course', [CategoryController::class, 'getCourseCategory']);
     Route::get('categories/podcast', [CategoryController::class, 'getPodcastCategory']);
@@ -72,5 +72,4 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 });
 
-Route::post('/podcast/upload', [AdminPodcastController::class, 'uploadPodcast']);
-Route::post('/podcast/remove', [AdminPodcastController::class, 'removePodcast']);
+

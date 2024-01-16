@@ -41,7 +41,7 @@ const Module = ({ module, courseId, handleEdit }) => {
                             <BsThreeDotsVertical />
                         </div>
                     )}>
-                        <Dropdown.Item onClick={() => handleEdit({ ...module, videos: null })}>Edit</Dropdown.Item>
+                        <Dropdown.Item onClick={() => handleEdit({ ...module, lessons: null })}>Edit</Dropdown.Item>
                         <Dropdown.Item onClick={() => setDeleteModalOpen(true)}>Delete</Dropdown.Item>
                     </Dropdown>
 
@@ -57,7 +57,7 @@ const Module = ({ module, courseId, handleEdit }) => {
                         exit={{ height: '0px', opacity: 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <Lessons lessons={module.videos} moduleId={module.id} courseId={courseId} />
+                        <Lessons lessons={module.lessons} moduleId={module.id} courseId={courseId} />
                     </motion.div>
                 }
             </AnimatePresence>

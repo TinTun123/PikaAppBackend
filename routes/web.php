@@ -32,6 +32,8 @@ use Vimeo\Vimeo;
 |
 */
 
+
+
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AdminAuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AdminAuthController::class, 'login'])->name('postLogin');
@@ -39,6 +41,10 @@ Route::middleware('guest')->group(function () {
 
 
 Route::middleware('auth')->group(function () {
+
+    Route::post('/podcast/upload', [AdminPodcastController::class, 'uploadPodcast'])->name('podcast.upload');
+    Route::post('/podcast/remove', [AdminPodcastController::class, 'removePodcast'])->name('podcast.remove');
+
     Route::get('/', function () {
         return inertia('Home');
     })->name('index');
@@ -59,6 +65,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/', 'store')->name('store');
         Route::get('/edit/{course:id}', 'edit')->name('edit');
         Route::post('/update/{course:id}', 'update')->name('update');
+        Route::delete('/destroy/{course:id}', 'destroy')->name('destroy');
 
         Route::post('/popular/{course:id}', 'togglePopular')->name('togglePopular');
         Route::post('/recommended/{course:id}', 'toggleRecommended')->name('toggleRecommended');
@@ -72,8 +79,8 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(AdminLessonController::class)->prefix('/lessons')->name('lessons.')->group(function () {
         Route::post('/', 'store')->name('store');
-        Route::post('/update/{video:id}', 'update')->name('update');
-        Route::delete('/destroy/{video:id}', 'destroy')->name('destroy');
+        Route::post('/update/{lesson:id}', 'update')->name('update');
+        Route::delete('/destroy/{lesson:id}', 'destroy')->name('destroy');
     });
 
     Route::controller(AdminTestimonialController::class)->prefix('/testimonial')->name('testimonial.')->group(function () {

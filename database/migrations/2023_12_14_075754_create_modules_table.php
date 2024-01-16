@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->foreignId('course_id')->constrained('courses');
+            $table->foreignId('course_id');
             $table->integer('number');
 
             $table->unique(['course_id', 'number']);

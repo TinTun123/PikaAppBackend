@@ -23,10 +23,14 @@ class UpdateCourseRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'description' => 'required',
-            'price' => 'required',
-            'instructor' => 'required',
+            'info' => 'required',
+            'outline' => 'required',
+            'author' => 'required',
             'image' => 'required',
+            'fee' => 'required|integer',
+            'recommendation_text' => 'required',
+            'category_id' => 'required',
+            'attraction_text' => 'required',
         ];
     }
 }

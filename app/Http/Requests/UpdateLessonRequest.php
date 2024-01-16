@@ -22,12 +22,7 @@ class UpdateLessonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
-            'video' => 'required',
-            'number' => 'required|numeric',
-            'description' => 'required',
-            'course_id' => 'required|exists:courses,id',
-            'module_id' => 'required|exists:modules,id',
+            //
         ];
     }
 }

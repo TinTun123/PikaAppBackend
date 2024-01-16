@@ -16,9 +16,9 @@ class Course extends Model
         'recommended' => 'boolean'
     ];
 
-    public function videos()
+    public function lessons()
     {
-        return $this->hasMany(Video::class);
+        return $this->hasMany(Lesson::class);
     }
 
     public function getImageAttribute()
