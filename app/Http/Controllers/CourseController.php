@@ -14,7 +14,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::with('category')
-            ->withCount('videos', 'modules')
+            ->withCount('lessons', 'modules')
             ->filterByCategory()
             ->filterByPopular()
             ->filterByRecommended()
@@ -52,7 +52,7 @@ class CourseController extends Controller
 
                 'modules' => function ($query) {
                     return $query->orderBy('number');
-                }, 'modules.videos' => function ($query) {
+                }, 'modules.lessons' => function ($query) {
                     return $query->select('duration', 'title', 'id', 'description', 'course_id', 'module_id', 'number')->orderBy('number')->withCount(['watched_users as watched' => function ($query) {
                         return $query->where('user_id', auth()->id());
                     }])->withCasts(['watched' => 'boolean']);

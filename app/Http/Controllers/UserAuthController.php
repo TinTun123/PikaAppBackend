@@ -39,7 +39,7 @@ class UserAuthController extends Controller
 
         if (!auth()->attempt($request->only('email', 'password'))) {
             return response()->json([
-                'message' => 'Sorry, something is wrong!'
+                'message' => 'Your password is incorrect!'
             ], 401);
         }
 

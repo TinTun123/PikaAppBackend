@@ -52,7 +52,7 @@ class Course extends Model
     public function getTotalVideoLengthAttribute()
     {
         return $this->modules->reduce(function ($total_module_video_length, $module) {
-            return $total_module_video_length + $module->videos->reduce(function ($total_lesson_video_length, $lesson) {
+            return $total_module_video_length + $module->lessons->reduce(function ($total_lesson_video_length, $lesson) {
                 return $total_lesson_video_length + ($lesson->duration ? (int) $lesson->duration : 0);
             }, 0);
         }, 0);

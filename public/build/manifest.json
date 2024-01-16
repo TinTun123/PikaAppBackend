@@ -333,7 +333,7 @@
     "src": "resources/js/Pages/Podcasts/Podcasts.jsx"
   },
   "resources/js/Pages/Popular/Index.jsx": {
-    "file": "assets/Index-1c56112c.js",
+    "file": "assets/Index-290c171a.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Podcasts/Podcasts.jsx",
@@ -348,7 +348,7 @@
     "src": "resources/js/Pages/Popular/Index.jsx"
   },
   "resources/js/Pages/Recommended/Index.jsx": {
-    "file": "assets/Index-290c171a.js",
+    "file": "assets/Index-1c56112c.js",
     "imports": [
       "resources/js/app.jsx",
       "resources/js/Pages/Podcasts/Podcasts.jsx",
