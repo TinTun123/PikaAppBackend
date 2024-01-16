@@ -18,7 +18,8 @@ const Form = ({show, current, setFormOpen, categories}) => {
         let url = current ? route('podcast.update', current.id) : route('podcast.store');
         post(url, {
             onSuccess: () => {
-
+            setFormOpen(false);
+            setData({});
             }
         });
     }
@@ -43,16 +44,14 @@ const Form = ({show, current, setFormOpen, categories}) => {
 
     const removePodcast = async (path) => {
         try {
-            const res = await axios.post('api/podcast/remove', {path})
+            const res = await axios.post(route('podcast.remove'), {path})
             setData(pre => ({...pre, file: null, playable_file: null, time: 0}));
         } catch (e) {
             console.log(e);
         }
     }
 
-    useEffect(() => {
-        console.log(data);
-    }, [data])
+
 
 
     return (
@@ -69,8 +68,7 @@ const Form = ({show, current, setFormOpen, categories}) => {
                 {
                     data.playable_file &&
                     <>
-                        <audio controls>
-                            {/* http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Kangaroo_MusiQue_-_The_Neverwritten_Role_Playing_Game.mp3 */}
+                        <audio className={'w-full '} controls>
                             <source src={data.playable_file} type="audio/mp3"/>
                         </audio>
                         <Button onClick={() => removePodcast(data.file)}

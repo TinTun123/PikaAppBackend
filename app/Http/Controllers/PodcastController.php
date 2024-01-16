@@ -28,4 +28,12 @@ class PodcastController extends Controller
             'podcasts' => $podcasts
         ]);
     }
+
+
+    public function show(Podcast $podcast)
+    {
+        return response()->json([
+            'podcast' => $podcast
+        ]);
+    }
 }

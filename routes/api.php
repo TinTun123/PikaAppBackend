@@ -57,6 +57,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/terms', [SettingController::class, 'getTerms']);
 
     Route::get('/podcasts', [PodcastController::class, 'index']);
+    Route::get('/podcasts/{podcast:id}',[PodcastController::class,'show']);
     Route::get('/podcasts/popular', [PopularPodcastController::class, 'index']);
     Route::get('/podcasts/recommended', [RecommendedPodcastController::class, 'index']);
 

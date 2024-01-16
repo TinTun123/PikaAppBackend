@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('file');
             $table->string('category_id');
             $table->integer('duration');
-            $table->string('price')->nullable();
+            $table->integer('price')->nullable();
             $table->string('description');
             $table->string('author');
             $table->boolean('popular')->default(false);
