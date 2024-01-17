@@ -42,6 +42,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
 
+    Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
     Route::post('/podcast/upload', [AdminPodcastController::class, 'uploadPodcast'])->name('podcast.upload');
     Route::post('/podcast/remove', [AdminPodcastController::class, 'removePodcast'])->name('podcast.remove');
 

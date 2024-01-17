@@ -1,57 +1,39 @@
-import { Link, useForm } from "@inertiajs/react";
-import { useEffect } from "react";
-import Input from "../../components/Input.jsx";
+import React from 'react';
+import Lottie from "lottie-react";
+import { useForm } from "@inertiajs/react";
 import Button from "../../components/Button.jsx";
-// import Logo from '../assets/images/yogo.jpeg';
-// import Lottie from "lottie-react";
-// import LoginLottie from '../assets/lotties/login.json';
+import LoginLottie from '../../constant/login.json';
+import Input from "../../components/Input.jsx";
 
+const Login = () => {
 
-const Login = (props) => {
+  const { data, setData, post, errors, processing } = useForm({});
 
-  const { data, setData, post, processing, errors } = useForm({
-    email: '',
-    password: '',
-    remember: false,
-  })
-
-  console.log(errors);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    post('/login');
+  const handleChange = (field, e) => {
+    setData(pre => ({ ...pre, [field]: e.target.value }))
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    post(route('login'), {
+
+    });
+  };
+
   return (
-    <div className=" min-h-screen flex items-center p-6 bg-gray-50">
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1  lg:grid-cols-2 items-center">
-        <div>
-          {/* <Lottie animationData={LoginLottie} /> */}
-        </div>
-        <form onSubmit={handleSubmit} className="flex items-center  justify-center ">
-          <div className="w-full bg-gray-100  p-10 rounded-lg">
-            <div className="flex justify-center py-3">
-              {/* <img src={Logo} className="w-[100px] h-[100px]" alt="Logo" /> */}
-            </div>
-            <label className="block text-sm">
-              <span className="text-gray-700 dark:text-gray-400">Email</span>
-              <Input value={data?.email} onChange={e => setData('email', e.target.value)} placeholder={'Enter your email'}
-                type={'email'} />
-            </label>
-            <label className="block mt-4 text-sm">
-              <span className="text-gray-700 dark:text-gray-400">Password</span>
-              <Input value={data?.password} onChange={(e) => setData('password', e.target.value)} placeholder='**********'
-                type='password' />
-            </label>
-            fsdfsafa
-            <Button type={'submit'} isLoading={processing} className={'mt-5'}>
-              Login
-            </Button>
-          </div>
+    <div className={'grid grid-cols-1 lg:grid-cols-2 gap-14 p-10 lg:p-20 '}>
+      <Lottie className="max-w-[70%] mx-auto" animationData={LoginLottie} loop={true} />
+      <div className={'flex items-center justify-center lg:justify-start '}>
+        <form onSubmit={handleSubmit} className={'flex gap-5 flex-col w-full lg:w-[60%] '}>
+          <Input error={errors.email} label={'Email'} value={data.email ?? ''} onChange={(e) => handleChange('email', e)}
+            type={'email'} required={true} />
+          <Input error={errors.password} label={'Password'} value={data.password ?? ''} onChange={(e) => handleChange('password', e)}
+            required={true} type={'password'} />
+          <Button type={'submit'} loading={processing} className={'rounded-md mt-10'}>Login</Button>
         </form>
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 export default Login;

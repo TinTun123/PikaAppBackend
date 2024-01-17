@@ -1,0 +1,1 @@
+import{j as o}from"./app-bf4b4a66.js";import r from"./Podcasts-b75056c1.js";import"./TableData-1ff948ab.js";import"./Paginator-0361aedf.js";import"./Dropdown-8aa9dd11.js";const x=({podcasts:t})=>o.jsx(r,{podcasts:t});export{x as default};

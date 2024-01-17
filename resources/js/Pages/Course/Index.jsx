@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Button from "../../components/Button.jsx";
 import CourseCard from "./CourseCard.jsx";
 import Paginator from '../../components/Paginator.jsx';
+import Button from "../../components/Button.jsx";
 
 const Index = ({ courses }) => {
 
