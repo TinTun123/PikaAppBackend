@@ -12,6 +12,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\PointController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [UserAuthController::class, 'logout']);
     Route::get('/user', [UserAuthController::class, 'getUser']);
 
+    Route::prefix('point')->controller(PointController::class)->group(function () {
+        Route::post('/add', 'add');
+        Route::post('/subtract', 'subtract');
+    });
 
     Route::get('/sliders', [SliderController::class, 'index']);
 
