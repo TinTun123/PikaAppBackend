@@ -8,14 +8,14 @@ class PopularPodcastController extends Controller
 {
     public function index()
     {
-        $podcasts = Podcast::with(['category' => function($query){
-            return $query->select('name','id');
-        }])->select('id','title','image','type','category_id','duration','popular','price')
-            ->where('popular',true);
+        $podcasts = Podcast::with(['category' => function ($query) {
+            return $query->select('name', 'id');
+        }])->select('id', 'title', 'image', 'type', 'category_id', 'duration', 'popular', 'price')
+            ->where('popular', true);
 
-        if(request('limit')){
+        if (request('limit')) {
             $podcasts = $podcasts->take(intval(request('limit')))->get();
-        }else{
+        } else {
             $podcasts = $podcasts->paginate(10);
         }
 

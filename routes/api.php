@@ -57,9 +57,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/terms', [SettingController::class, 'getTerms']);
 
     Route::get('/podcasts', [PodcastController::class, 'index']);
-    Route::get('/podcasts/{podcast:id}',[PodcastController::class,'show']);
-    Route::get('/podcasts/popular', [PopularPodcastController::class, 'index']);
-    Route::get('/podcasts/recommended', [RecommendedPodcastController::class, 'index']);
+    Route::get('/podcasts/{podcast:id}', [PodcastController::class, 'show']);
+    Route::get('/popular/podcasts', [PopularPodcastController::class, 'index']);
+    Route::get('/recommended/podcasts', [RecommendedPodcastController::class, 'index']);
 
 
     Route::controller(FavoritePodcastController::class)->prefix('favorite')->group(function () {
@@ -72,5 +72,3 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/{course:id}', 'toggleSaved');
     });
 });
-
-
