@@ -7,6 +7,7 @@ use App\Http\Requests\StorePodcastRequest;
 use App\Http\Requests\UpdatePodcastRequest;
 use App\Models\Category;
 use App\Models\Podcast;
+use App\Traits\ImageDeleter;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,7 @@ use Owenoj\LaravelGetId3\GetId3;
 
 class AdminPodcastController extends Controller
 {
+    use ImageDeleter;
     public function index()
     {
         $podcasts = Podcast::with('category')->paginate(10);
@@ -43,6 +45,11 @@ class AdminPodcastController extends Controller
         $attributes = $request->only('title', 'file', 'type', 'category_id', 'time', 'price', 'description', 'author');
         if ($request->type === 'free') {
             $attributes['price'] = null;
+        }
+
+        if (request()->hasFile('image')) {
+            $attributes['image'] = $request->file('image')->store('podcasts');
+            $this->deleteImage($podcast->image);
         }
 
         try {

@@ -25,7 +25,6 @@ class StorePodcastRequest extends FormRequest
             'title' => 'required',
             'file' => 'required',
             'category_id' => 'required',
-            // 'time' => 'required',
             'description' => 'required',
             'author' => 'required',
             'image' => 'required',
